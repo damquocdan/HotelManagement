@@ -1,72 +1,73 @@
 ﻿@model IEnumerable<HotelManagement.Models.Customer>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Danh Sách Khách Hàng";
     Layout = "~/Areas/AdminHotels/Views/Shared/Admin.cshtml";
 }
 
-<h1>Index</h1>
+<h1 style="color: #197fca;">Danh Sách Khách Hàng</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" style="color: #197fca;">Tạo Mới</a>
 </p>
-<table class="table">
+<table class="table table-striped">
     <thead>
         <tr>
-            <th>
+            <th style="color: #197fca;">
                 @Html.DisplayNameFor(model => model.Name)
             </th>
-            <th>
+            <th style="color: #197fca;">
                 @Html.DisplayNameFor(model => model.Email)
             </th>
-            <th>
+            <th style="color: #197fca;">
                 @Html.DisplayNameFor(model => model.Phone)
             </th>
-            <th>
+            <th style="color: #197fca;">
                 @Html.DisplayNameFor(model => model.Gender)
             </th>
-            <th>
+            <th style="color: #197fca;">
                 @Html.DisplayNameFor(model => model.DateOfBirth)
             </th>
-            <th>
+            <th style="color: #197fca;">
                 @Html.DisplayNameFor(model => model.Address)
             </th>
-            <th>
+            <th style="color: #197fca;">
                 @Html.DisplayNameFor(model => model.Password)
             </th>
-            <th></th>
+            <th style="color: #197fca;"></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Phone)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Gender)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateOfBirth)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Address)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Password)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.CustomerId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.CustomerId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.CustomerId">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Phone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Gender)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateOfBirth)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Password)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.CustomerId" style="color: #ec4e45;">Chỉnh Sửa</a> 
+                    <a asp-action="Details" asp-route-id="@item.CustomerId" style="color: #ec4e45;">Chi Tiết</a> 
+                    <a asp-action="Delete" asp-route-id="@item.CustomerId" style="color: #ec4e45;">Xóa</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

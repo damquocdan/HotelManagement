@@ -1,16 +1,17 @@
 ﻿@model IEnumerable<HotelManagement.Models.Room>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Danh Sách Phòng";
     Layout = "~/Areas/AdminHotels/Views/Shared/Admin.cshtml";
 }
 
-<h1>Index</h1>
+<h1>Danh Sách Phòng</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" class="btn btn-primary">Tạo Mới</a>
 </p>
-<table class="table">
+
+<table class="table table-striped">
     <thead>
         <tr>
             <th>
@@ -32,29 +33,113 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.RoomNumber)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RoomType)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PricePerNight)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Status)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Hotel.HotelId)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.RoomId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.RoomId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.RoomId">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RoomNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RoomType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PricePerNight)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Hotel.HotelId)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.RoomId" class="btn btn-warning btn-sm">Chỉnh Sửa</a> 
+                    <a asp-action="Details" asp-route-id="@item.RoomId" class="btn btn-info btn-sm">Chi Tiết</a> 
+                    <a asp-action="Delete" asp-route-id="@item.RoomId" class="btn btn-danger btn-sm">Xóa</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
+
+    <style>
+        /* Custom colors and styling */
+        .btn-primary {
+            background-color: #197fca;
+            border-color: #197fca;
+        }
+
+            .btn-primary:hover {
+                background-color: #ec4e45;
+                border-color: #ec4e45;
+            }
+
+        .btn-warning {
+            background-color: #f0ad4e;
+            border-color: #f0ad4e;
+        }
+
+            .btn-warning:hover {
+                background-color: #ec4e45;
+                border-color: #ec4e45;
+            }
+
+        .btn-info {
+            background-color: #5bc0de;
+            border-color: #5bc0de;
+        }
+
+            .btn-info:hover {
+                background-color: #ec4e45;
+                border-color: #ec4e45;
+            }
+
+        .btn-danger {
+            background-color: #d9534f;
+            border-color: #d9534f;
+        }
+
+            .btn-danger:hover {
+                background-color: #ec4e45;
+                border-color: #ec4e45;
+            }
+
+        h1, h4 {
+            color: #197fca;
+        }
+
+        table {
+            width: 100%;
+        background-color: #197fca;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+            table th, table td {
+                text-align: center;
+                vertical-align: middle;
+            }
+
+            table th {
+                background-color: #197fca;
+                color: black;
+            }
+
+            table td a {
+                color: #197fca;
+            }
+
+                table td a:hover {
+                    color: #ec4e45;
+                }
+
+        .btn {
+            margin: 5px;
+        }
+    </style>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

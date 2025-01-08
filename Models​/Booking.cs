@@ -1,29 +1,38 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
-namespace HotelManagement.Models​;
-
-public partial class Booking
+namespace HotelManagement.Models
 {
-    public int BookingId { get; set; }
+    public partial class Booking
+    {
+        [Display(Name = "Mã Đặt Phòng")]
+        public int BookingId { get; set; }
 
-    public int? CustomerId { get; set; }
+        [Display(Name = "Mã Khách Hàng")]
+        public int? CustomerId { get; set; }
 
-    public int? RoomId { get; set; }
+        [Display(Name = "Mã Phòng")]
+        public int? RoomId { get; set; }
 
-    public DateOnly CheckInDate { get; set; }
+        [Display(Name = "Ngày Nhận Phòng")]
+        public DateOnly CheckInDate { get; set; }
 
-    public DateOnly CheckOutDate { get; set; }
+        [Display(Name = "Ngày Trả Phòng")]
+        public DateOnly CheckOutDate { get; set; }
 
-    public decimal TotalPrice { get; set; }
+        [Display(Name = "Tổng Giá")]
+        public decimal TotalPrice { get; set; }
 
-    public string? Status { get; set; }
+        [Display(Name = "Trạng Thái")]
+        public string? Status { get; set; }
 
-    public virtual Customer? Customer { get; set; }
+        public virtual Customer? Customer { get; set; }
 
-    public virtual ICollection<Payment> Payments { get; set; } = new List<Payment>();
+        public virtual ICollection<Payment> Payments { get; set; } = new List<Payment>();
 
-    public virtual Room? Room { get; set; }
+        public virtual Room? Room { get; set; }
 
-    public virtual ICollection<ServiceUsage> ServiceUsages { get; set; } = new List<ServiceUsage>();
+        public virtual ICollection<ServiceUsage> ServiceUsages { get; set; } = new List<ServiceUsage>();
+    }
 }

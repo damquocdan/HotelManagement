@@ -1,44 +1,50 @@
 ﻿@model HotelManagement.Models.Service
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Tạo Mới";
     Layout = "~/Areas/AdminHotels/Views/Shared/Admin.cshtml";
 }
 
-<h1>Create</h1>
+<h1 style="color: #197fca;">Tạo Dịch Vụ Mới</h1>
 
-<h4>Service</h4>
+<h4 style="color: #197fca;">Dịch Vụ</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-6">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
             <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
+                <label asp-for="Name" class="control-label" style="color: #197fca;"></label>
                 <input asp-for="Name" class="form-control" />
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
+
             <div class="form-group">
-                <label asp-for="Description" class="control-label"></label>
+                <label asp-for="Description" class="control-label" style="color: #197fca;"></label>
                 <input asp-for="Description" class="form-control" />
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
+
             <div class="form-group">
-                <label asp-for="Price" class="control-label"></label>
+                <label asp-for="Price" class="control-label" style="color: #197fca;"></label>
                 <input asp-for="Price" class="form-control" />
                 <span asp-validation-for="Price" class="text-danger"></span>
             </div>
+
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Tạo Mới" class="btn" style="background-color: #ec4e45; border-color: #ec4e45; color: white;" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index" class="btn btn-secondary" style="background-color: #197fca; border-color: #197fca; color: white;">Quay lại danh sách</a>
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }

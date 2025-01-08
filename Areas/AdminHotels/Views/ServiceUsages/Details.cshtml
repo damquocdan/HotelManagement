@@ -1,43 +1,51 @@
 ﻿@model HotelManagement.Models.ServiceUsage
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Chi Tiết";
     Layout = "~/Areas/AdminHotels/Views/Shared/Admin.cshtml";
 }
 
-<h1>Details</h1>
+<h1 style="color: #197fca;">Chi Tiết Dịch Vụ Sử Dụng</h1>
 
 <div>
-    <h4>ServiceUsage</h4>
+    <h4 style="color: #ec4e45;">Dịch Vụ Sử Dụng</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
+        <!-- Quantity -->
+        <dt class="col-sm-2" style="color: #197fca;">
             @Html.DisplayNameFor(model => model.Quantity)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Quantity)
         </dd>
-        <dt class = "col-sm-2">
+
+        <!-- TotalPrice -->
+        <dt class="col-sm-2" style="color: #197fca;">
             @Html.DisplayNameFor(model => model.TotalPrice)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.TotalPrice)
         </dd>
-        <dt class = "col-sm-2">
+
+        <!-- Booking -->
+        <dt class="col-sm-2" style="color: #197fca;">
             @Html.DisplayNameFor(model => model.Booking)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Booking.BookingId)
         </dd>
-        <dt class = "col-sm-2">
+
+        <!-- Service -->
+        <dt class="col-sm-2" style="color: #197fca;">
             @Html.DisplayNameFor(model => model.Service)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Service.ServiceId)
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Service.Name)
         </dd>
     </dl>
 </div>
+
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.UsageId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Edit" asp-route-id="@Model?.UsageId" class="btn" style="background-color: #197fca; color: white; border-color: #197fca; padding: 5px 10px;">Chỉnh Sửa</a>
+    <a asp-action="Index" class="btn" style="background-color: #ec4e45; color: white; border-color: #ec4e45; padding: 5px 10px;">Quay lại danh sách</a>
 </div>

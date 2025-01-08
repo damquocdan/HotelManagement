@@ -37,7 +37,7 @@
                     <a href="#" class="nav-link">
                         <div class="d-flex align-items-center">
                             <div class="icon-container">
-                                <i class="fa-solid fa-user-tie fa-xl"></i>
+                                <i class="fas fa-user-shield fa-xl"></i>
                             </div>
                             <p class="ms-3">
                                 Tài khoản Admin
@@ -47,25 +47,105 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="/adminmanagement/admins" class="nav-link">
-                                <i class="fas fa-edit nav-icon"></i>
+                            <a href="/adminhotels/admins" class="nav-link">
+                                <i class="fas fa-list nav-icon"></i>
                                 <p>Danh sách</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/adminmanagement/admins/create" class="nav-link">
+                            <a href="/adminhotels/admins/create" class="nav-link">
+                                <i class="fas fa-user-plus nav-icon"></i>
+                                <p>Thêm</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <div class="d-flex align-items-center">
+                            <div class="icon-container">
+                                <i class="fas fa-hotel fa-xl"></i>
+                            </div>
+                            <p class="ms-3">
+                                Quản lý khách sạn
+                                <i class="right fas fa-angle-down"></i>
+                            </p>
+                        </div>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="/adminhotels/hotels" class="nav-link">
+                                <i class="fas fa-list nav-icon"></i>
+                                <p>Danh sách</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/adminhotels/hotels/create" class="nav-link">
                                 <i class="fas fa-plus-circle nav-icon"></i>
                                 <p>Thêm</p>
                             </a>
                         </li>
                     </ul>
                 </li>
-
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <div class="d-flex align-items-center">
+                            <div class="icon-container">
+                                <i class="fas fa-door-open fa-xl"></i>
+                            </div>
+                            <p class="ms-3">
+                                Quản lý Phòng
+                                <i class="right fas fa-angle-down"></i>
+                            </p>
+                        </div>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="/adminhotels/rooms" class="nav-link">
+                                <i class="fas fa-list nav-icon"></i>
+                                <p>Danh sách</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/adminhotels/rooms/create" class="nav-link">
+                                <i class="fas fa-plus-circle nav-icon"></i>
+                                <p>Thêm</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <div class="d-flex align-items-center">
+                            <div class="icon-container">
+                                <i class="fas fa-concierge-bell fa-xl"></i>
+                            </div>
+                            <p class="ms-3">
+                                Quản lý Dịch Vụ
+                                <i class="right fas fa-angle-down"></i>
+                            </p>
+                        </div>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="/adminhotels/services" class="nav-link">
+                                <i class="fas fa-list nav-icon"></i>
+                                <p>Danh sách</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/adminhotels/services/create" class="nav-link">
+                                <i class="fas fa-plus-circle nav-icon"></i>
+                                <p>Thêm</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <div class="d-flex align-items-center">
                             <div class="d-flex justify-content-center" style="width: 30px">
-                                <i class="fa-solid fa-house-user fa-xl"></i>
+                                <i class="fas fa-users fa-xl"></i>
                             </div>
                             <p class="ms-3">
                                 Quản lý khách hàng
@@ -75,26 +155,24 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="/adminmanagement/customers" class="nav-link">
-                                <i class="fas fa-edit nav-icon"></i>
+                            <a href="/adminhotels/customers" class="nav-link">
+                                <i class="fas fa-list nav-icon"></i>
                                 <p>Danh sách</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/adminmanagement/customers/create" class="nav-link">
-                                <i class="fas fa-plus-circle nav-icon"></i>
+                            <a href="/adminhotels/customers/create" class="nav-link">
+                                <i class="fas fa-user-plus nav-icon"></i>
                                 <p>Thêm</p>
                             </a>
                         </li>
-
                     </ul>
                 </li>
-
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <div class="d-flex align-items-center">
                             <div class="d-flex justify-content-center" style="width: 30px">
-                                <i class="fa-solid fa-house-user fa-xl"></i>
+                                <i class="fa-solid fa-users fa-xl"></i>
                             </div>
                             <p class="ms-3">
                                 Quản lý nhân viên
@@ -104,18 +182,17 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="/adminmanagement/employees/" class="nav-link">
-                                <i class="fas fa-edit nav-icon"></i>
+                            <a href="/adminhotels/staffs/" class="nav-link">
+                                <i class="fas fa-list nav-icon"></i>
                                 <p>Danh sách</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/adminmanagement/employees/create" class="nav-link">
-                                <i class="fas fa-plus-circle nav-icon"></i>
+                            <a href="/adminhotels/staffs/create" class="nav-link">
+                                <i class="fas fa-user-plus nav-icon"></i>
                                 <p>Thêm</p>
                             </a>
                         </li>
-
                     </ul>
                 </li>
 
@@ -123,83 +200,173 @@
                     <a href="#" class="nav-link">
                         <div class="d-flex align-items-center">
                             <div class="d-flex justify-content-center" style="width: 30px">
-                                <i class="fa-solid fa-list fa-xl"></i>
+                                <i class="fa-solid fa-bed fa-xl"></i>
                             </div>
                             <p class="ms-3">
-                                Quản lý bánh
+                                Quản lý Phòng Đặt
                                 <i class="right fas fa-angle-down"></i>
                             </p>
                         </div>
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="/adminmanagement/cakes" class="nav-link">
-                                <i class="fas fa-plus-circle nav-icon"></i>
+                            <a href="/adminhotels/bookings/" class="nav-link">
+                                <i class="fas fa-list nav-icon"></i>
                                 <p>Danh sách</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/adminmanagement/cakes/create" class="nav-link">
-                                <i class="fas fa-edit nav-icon"></i>
+                            <a href="/adminhotels/bookings/create" class="nav-link">
+                                <i class="fas fa-calendar-plus nav-icon"></i>
                                 <p>Thêm</p>
                             </a>
                         </li>
                     </ul>
                 </li>
+
                 <li class="nav-item">
-                    <a href="/adminmanagement/orders" class="nav-link">
+                    <a href="#" class="nav-link">
                         <div class="d-flex align-items-center">
                             <div class="d-flex justify-content-center" style="width: 30px">
-                                <i class="fa-solid fa-list fa-xl"></i>
+                                <i class="fa-solid fa-star fa-xl"></i>
                             </div>
                             <p class="ms-3">
-                                Quản lý đơn hàng
+                                Quản lý Đánh Giá
+                                <i class="right fas fa-angle-down"></i>
                             </p>
                         </div>
                     </a>
-
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="/adminhotels/reviews/" class="nav-link">
+                                <i class="fas fa-list nav-icon"></i>
+                                <p>Danh sách</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/adminhotels/reviews/create" class="nav-link">
+                                <i class="fas fa-star-half-alt nav-icon"></i>
+                                <p>Thêm</p>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
+
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <div class="d-flex align-items-center">
+                            <div class="d-flex justify-content-center" style="width: 30px">
+                                <i class="fa-solid fa-concierge-bell fa-xl"></i>
+                            </div>
+                            <p class="ms-3">
+                                Quản lý Đặt Dịch Vụ
+                                <i class="right fas fa-angle-down"></i>
+                            </p>
+                        </div>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="/adminhotels/serviceusages/" class="nav-link">
+                                <i class="fas fa-list nav-icon"></i>
+                                <p>Danh sách</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/adminhotels/serviceusages/create" class="nav-link">
+                                <i class="fas fa-concierge-bell nav-icon"></i>
+                                <p>Thêm</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
             </ul>
         </nav>
+
     </div>
 </aside>
 <style>
-    /* Main Sidebar Customizations */
-    .sidebar-custom {
-        background-color: #f7b1ae;
-        color: #333;
-    }
+/* General Sidebar Styling */
+.main-sidebar {
+    background-color: #197fca;
+    color: white;
+}
 
-        .sidebar-custom .nav-link {
-            color: #333;
-        }
+.brand-link {
+    background-color: #ec4e45;
+    color: white;
+    font-weight: bold;
+}
 
-            .sidebar-custom .nav-link:hover,
-            .sidebar-custom .nav-link.active {
-                background-color: #ed3d34;
-                color: white;
-            }
+.brand-link:hover {
+    background-color: #d23c39; /* Slightly lighter red for hover effect */
+}
 
-        .sidebar-custom .nav-treeview .nav-link {
-            background-color: #f7d0ce;
-            color: #333;
-        }
+.user-panel .info a {
+    color: white;
+    font-size: 14px;
+}
 
-            .sidebar-custom .nav-treeview .nav-link:hover {
-                background-color: #ed3d34;
-                color: white;
-            }
+.user-panel .info a.logout-link {
+    color: #ec4e45;
+}
 
-    .icon-container {
-        width: 30px;
-        text-align: center;
-    }
+.user-panel .info a.logout-link:hover {
+    color: #d23c39;
+}
 
-    .logout-link {
-        color: #ed3d34;
-    }
+/* Sidebar Menu */
+.nav-sidebar .nav-link {
+    color: white;
+    transition: background-color 0.3s, color 0.3s;
+}
 
-        .logout-link:hover {
-            text-decoration: underline;
-        }
+.nav-sidebar .nav-link:hover {
+    background-color: #165f96; /* Slightly darker blue for hover */
+    color: #ec4e45; /* Red accent for hover */
+}
+
+.nav-sidebar .nav-link.active {
+    background-color: #ec4e45;
+    color: white;
+}
+
+.nav-sidebar .nav-icon {
+    color: white;
+}
+
+/* Treeview Dropdown Styling */
+.nav-treeview .nav-link {
+    color: #ffffffb3; /* Semi-transparent white for nested items */
+}
+
+.nav-treeview .nav-link:hover {
+    color: white; /* Fully white on hover */
+}
+
+.nav-treeview .nav-link .nav-icon {
+    color: #ffffffb3;
+}
+
+.nav-treeview .nav-link:hover .nav-icon {
+    color: white;
+}
+
+/* Icon Container */
+.icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+}
+
+/* Miscellaneous */
+.d-flex.justify-content-center {
+    width: 30px;
+}
+
+.info a {
+    text-decoration: none;
+}
 </style>
+

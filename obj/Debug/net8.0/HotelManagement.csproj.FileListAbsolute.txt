@@ -267,3 +267,4 @@ E:\DATN\HotelManagement\bin\Debug\net8.0\runtimes\win\lib\net7.0\Microsoft.Win32
 E:\DATN\HotelManagement\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Drawing.Common.dll
 E:\DATN\HotelManagement\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Security.Cryptography.ProtectedData.dll
 E:\DATN\HotelManagement\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Windows.Extensions.dll
+E:\DATN\HotelManagement\obj\Debug\net8.0\HotelManagement.sourcelink.json

@@ -1,16 +1,16 @@
 ﻿@model IEnumerable<HotelManagement.Models.Review>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Danh Sách Đánh Giá";
     Layout = "~/Areas/AdminHotels/Views/Shared/Admin.cshtml";
 }
 
-<h1>Index</h1>
+<h1>Danh Sách Đánh Giá</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" class="btn btn-primary">Tạo Mới</a>
 </p>
-<table class="table">
+<table class="table table-striped">
     <thead>
         <tr>
             <th>
@@ -32,29 +32,30 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rating)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Comment)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ReviewDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Customer.CustomerId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Hotel.HotelId)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.ReviewId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ReviewId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ReviewId">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Rating)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Comment)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReviewDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Customer.CustomerId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Hotel.HotelId)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.ReviewId" class="btn btn-warning btn-sm">Sửa</a> 
+                    <a asp-action="Details" asp-route-id="@item.ReviewId" class="btn btn-info btn-sm">Chi Tiết</a> 
+                    <a asp-action="Delete" asp-route-id="@item.ReviewId" class="btn btn-danger btn-sm">Xóa</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

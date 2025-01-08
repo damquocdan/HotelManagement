@@ -19,11 +19,11 @@
 }
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Admin Login</title>
+    <title>Đăng Nhập Quản Trị Viên</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -35,6 +35,10 @@
     <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
 
     <style>
+        body {
+            background-color: #f4f6f9;
+        }
+
         .login-box {
             width: 400px;
             margin: auto;
@@ -48,7 +52,7 @@
         .login-title {
             font-weight: 700;
             font-size: 24px;
-            color: #333;
+            color: #197fca;
             text-align: center;
             margin-bottom: 20px;
         }
@@ -57,25 +61,34 @@
             border-radius: 8px;
             margin-top: 10px;
             height: 45px;
-            margin-left:14px;
+            margin-left: 14px;
+            border: 1px solid #197fca;
         }
 
         .btn-primary {
             width: 100%;
             border-radius: 8px;
             margin-top: 20px;
+            background-color: #197fca;
+            border-color: #197fca;
         }
+
+            .btn-primary:hover {
+                background-color: #ec4e45;
+                border-color: #ec4e45;
+            }
 
         .alert {
             margin-top: 20px;
             font-size: 14px;
+            color: #ec4e45;
         }
     </style>
 </head>
 <body class="hold-transition login-page">
 
     <div class="login-box">
-        <div class="login-title">Đăng nhập Admin</div>
+        <div class="login-title">Đăng Nhập Quản Trị Viên</div>
         <form asp-action="Index" method="post">
             <!-- Email input -->
             <input asp-for="Email" type="email" class="custom-input form-control form-control-lg"

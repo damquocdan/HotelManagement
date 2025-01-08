@@ -1,16 +1,16 @@
 ﻿@model IEnumerable<HotelManagement.Models.Admin>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Danh Sách Quản Trị Viên";
 }
 
-<h1>Index</h1>
+<h1 style="color: #197fca;">Danh Sách Quản Trị Viên</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" style="color: #197fca;">Tạo Mới</a>
 </p>
-<table class="table">
-    <thead>
+<table class="table table-striped">
+    <thead style="background-color: #197fca; color: white;">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Name)
@@ -31,29 +31,30 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Phone)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Password)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Role)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.AdminId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.AdminId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.AdminId">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Phone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Password)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Role)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.AdminId" style="color: #197fca;">Chỉnh Sửa</a> 
+                    <a asp-action="Details" asp-route-id="@item.AdminId" style="color: #197fca;">Chi Tiết</a> 
+                    <a asp-action="Delete" asp-route-id="@item.AdminId" style="color: #ec4e45;">Xóa</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

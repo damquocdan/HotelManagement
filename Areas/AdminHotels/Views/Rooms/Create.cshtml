@@ -1,53 +1,93 @@
 ﻿@model HotelManagement.Models.Room
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Tạo Phòng";
     Layout = "~/Areas/AdminHotels/Views/Shared/Admin.cshtml";
 }
 
-<h1>Create</h1>
+<h1>Tạo Phòng</h1>
 
-<h4>Room</h4>
+<h4>Thông Tin Phòng</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="HotelId" class="control-label"></label>
-                <select asp-for="HotelId" class ="form-control" asp-items="ViewBag.HotelId"></select>
+                <label asp-for="HotelId" class="control-label" style="color: #197fca;"></label>
+                <select asp-for="HotelId" class="form-control" asp-items="ViewBag.HotelId">
+                    <option value="">Chọn Khách Sạn</option>
+                </select>
             </div>
             <div class="form-group">
-                <label asp-for="RoomNumber" class="control-label"></label>
+                <label asp-for="RoomNumber" class="control-label" style="color: #197fca;"></label>
                 <input asp-for="RoomNumber" class="form-control" />
                 <span asp-validation-for="RoomNumber" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="RoomType" class="control-label"></label>
+                <label asp-for="RoomType" class="control-label" style="color: #197fca;"></label>
                 <input asp-for="RoomType" class="form-control" />
                 <span asp-validation-for="RoomType" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="PricePerNight" class="control-label"></label>
+                <label asp-for="PricePerNight" class="control-label" style="color: #197fca;"></label>
                 <input asp-for="PricePerNight" class="form-control" />
                 <span asp-validation-for="PricePerNight" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Status" class="control-label"></label>
+                <label asp-for="Status" class="control-label" style="color: #197fca;"></label>
                 <input asp-for="Status" class="form-control" />
                 <span asp-validation-for="Status" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Tạo" class="btn btn-primary" style="background-color: #197fca; border-color: #197fca;" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index" class="btn btn-secondary" style="background-color: #ec4e45; border-color: #ec4e45; color: white;">Quay lại danh sách</a>
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }
+
+    <style>
+        /* Custom colors and styling */
+        h1, h4 {
+            color: #197fca;
+        }
+
+        label {
+            font-weight: bold;
+            color: #197fca;
+        }
+
+        .btn-primary {
+            background-color: #197fca;
+            border-color: #197fca;
+        }
+
+            .btn-primary:hover {
+                background-color: #155a8a;
+                border-color: #155a8a;
+            }
+
+        .btn-secondary {
+            background-color: #ec4e45;
+            border-color: #ec4e45;
+        }
+
+            .btn-secondary:hover {
+                background-color: #c23c36;
+                border-color: #c23c36;
+            }
+
+        .text-danger {
+            color: #ec4e45;
+        }
+    </style>

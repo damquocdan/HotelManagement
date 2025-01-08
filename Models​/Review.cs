@@ -1,23 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
-namespace HotelManagement.Models​;
-
-public partial class Review
+namespace HotelManagement.Models
 {
-    public int ReviewId { get; set; }
+    public partial class Review
+    {
+        [Display(Name = "Mã Đánh Giá")]
+        public int ReviewId { get; set; }
 
-    public int HotelId { get; set; }
+        [Display(Name = "Mã Khách Sạn")]
+        public int HotelId { get; set; }
 
-    public int CustomerId { get; set; }
+        [Display(Name = "Mã Khách Hàng")]
+        public int CustomerId { get; set; }
 
-    public decimal? Rating { get; set; }
+        [Display(Name = "Đánh Giá")]
+        public decimal? Rating { get; set; }
 
-    public string? Comment { get; set; }
+        [Display(Name = "Bình Luận")]
+        public string? Comment { get; set; }
 
-    public DateOnly ReviewDate { get; set; }
+        [Display(Name = "Ngày Đánh Giá")]
+        public DateOnly ReviewDate { get; set; }
 
-    public virtual Customer Customer { get; set; } = null!;
+        public virtual Customer Customer { get; set; } = null!;
 
-    public virtual Hotel Hotel { get; set; } = null!;
+        public virtual Hotel Hotel { get; set; } = null!;
+    }
 }

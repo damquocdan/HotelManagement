@@ -20,3 +20,54 @@ html {
 body {
   margin-bottom: 60px;
 }
+:root {
+    --primary-color: #197fca;
+    --accent-color: #ec4e45;
+}
+
+
+.navbar {
+    background-color: var(--primary-color) !important;
+    border-bottom: 2px solid var(--accent-color);
+}
+
+.sidebar-dark-primary .nav-link.active,
+.sidebar-dark-primary .nav-link:hover {
+    background-color: var(--primary-color);
+    color: #ffffff;
+}
+
+.content-wrapper {
+    background-color: #ffffff; /* White background for content area */
+    border-left: 5px solid var(--accent-color);
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: #ffffff;
+}
+
+.btn-danger {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    color: #ffffff;
+}
+
+.card {
+    border-top: 3px solid var(--primary-color);
+}
+
+.control-sidebar {
+    background-color: #222d32;
+}
+
+footer {
+    background-color: var(--primary-color);
+    color: #ffffff;
+}
+
+/* Customize Chart Colors */
+.chartjs-render-monitor {
+    border-color: var(--primary-color);
+}

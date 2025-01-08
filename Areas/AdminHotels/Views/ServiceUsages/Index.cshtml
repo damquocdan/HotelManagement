@@ -1,18 +1,19 @@
 ﻿@model IEnumerable<HotelManagement.Models.ServiceUsage>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Danh Sách Dịch Vụ Sử Dụng";
     Layout = "~/Areas/AdminHotels/Views/Shared/Admin.cshtml";
 }
 
-<h1>Index</h1>
+<h1 style="color: #197fca;">Danh Sách Dịch Vụ Sử Dụng</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" class="btn" style="background-color: #ec4e45; border-color: #ec4e45; color: white;">Tạo Mới</a>
 </p>
-<table class="table">
+
+<table class="table table-striped">
     <thead>
-        <tr>
+        <tr style="background-color: #197fca; color: white;">
             <th>
                 @Html.DisplayNameFor(model => model.Quantity)
             </th>
@@ -29,26 +30,27 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Quantity)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TotalPrice)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Booking.BookingId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Service.ServiceId)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.UsageId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.UsageId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.UsageId">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quantity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalPrice)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Booking.BookingId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Service.ServiceId)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.UsageId" class="btn btn-primary" style="background-color: #197fca; border-color: #197fca; color: white;">Chỉnh Sửa</a> 
+                    <a asp-action="Details" asp-route-id="@item.UsageId" class="btn btn-info" style="background-color: #ec4e45; border-color: #ec4e45; color: white;">Chi Tiết</a> 
+                    <a asp-action="Delete" asp-route-id="@item.UsageId" class="btn btn-danger" style="background-color: #ec4e45; border-color: #ec4e45; color: white;">Xóa</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

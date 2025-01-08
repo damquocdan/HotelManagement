@@ -1,49 +1,90 @@
 ﻿@model HotelManagement.Models.Room
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Chi Tiết Phòng";
     Layout = "~/Areas/AdminHotels/Views/Shared/Admin.cshtml";
 }
 
-<h1>Details</h1>
+<h1>Chi Tiết Phòng</h1>
 
 <div>
-    <h4>Room</h4>
+    <h4>Thông Tin Phòng</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2" style="color: #197fca;">
             @Html.DisplayNameFor(model => model.RoomNumber)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.RoomNumber)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2" style="color: #197fca;">
             @Html.DisplayNameFor(model => model.RoomType)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.RoomType)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2" style="color: #197fca;">
             @Html.DisplayNameFor(model => model.PricePerNight)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.PricePerNight)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2" style="color: #197fca;">
             @Html.DisplayNameFor(model => model.Status)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Status)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2" style="color: #197fca;">
             @Html.DisplayNameFor(model => model.Hotel)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Hotel.HotelId)
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Hotel.Name)
         </dd>
     </dl>
 </div>
+
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.RoomId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Edit" asp-route-id="@Model?.RoomId" class="btn btn-primary">Chỉnh Sửa</a> 
+    <a asp-action="Index" class="btn btn-secondary">Quay lại danh sách</a>
 </div>
+
+    <style>
+        /* Custom colors and styling */
+        h1, h4 {
+            color: #197fca;
+        }
+
+        dt {
+            font-weight: bold;
+        }
+
+        dd {
+            margin-bottom: 15px;
+        }
+
+        .btn-primary {
+            background-color: #197fca;
+            border-color: #197fca;
+        }
+
+            .btn-primary:hover {
+                background-color: #ec4e45;
+                border-color: #ec4e45;
+            }
+
+        .btn-secondary {
+            background-color: #6c757d;
+            border-color: #6c757d;
+        }
+
+            .btn-secondary:hover {
+                background-color: #ec4e45;
+                border-color: #ec4e45;
+            }
+
+        .text-danger {
+            color: #ec4e45;
+        }
+    </style>
+

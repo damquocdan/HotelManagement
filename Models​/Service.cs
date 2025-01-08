@@ -1,17 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
-namespace HotelManagement.Models​;
-
-public partial class Service
+namespace HotelManagement.Models
 {
-    public int ServiceId { get; set; }
+    public partial class Service
+    {
+        [Display(Name = "Mã Dịch Vụ")]
+        public int ServiceId { get; set; }
 
-    public string Name { get; set; } = null!;
+        [Display(Name = "Tên Dịch Vụ")]
+        public string Name { get; set; } = null!;
 
-    public string? Description { get; set; }
+        [Display(Name = "Mô Tả")]
+        public string? Description { get; set; }
 
-    public decimal Price { get; set; }
+        [Display(Name = "Giá")]
+        public decimal Price { get; set; }
 
-    public virtual ICollection<ServiceUsage> ServiceUsages { get; set; } = new List<ServiceUsage>();
+        public virtual ICollection<ServiceUsage> ServiceUsages { get; set; } = new List<ServiceUsage>();
+    }
 }

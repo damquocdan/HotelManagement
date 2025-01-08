@@ -1,19 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
-namespace HotelManagement.Models​;
-
-public partial class Admin
+namespace HotelManagement.Models
 {
-    public int AdminId { get; set; }
+    public partial class Admin
+    {
+        [Display(Name = "Mã Quản Trị")]
+        public int AdminId { get; set; }
 
-    public string Name { get; set; } = null!;
+        [Display(Name = "Tên Quản Trị")]
+        public string Name { get; set; } = null!;
 
-    public string Email { get; set; } = null!;
+        [Display(Name = "Email")]
+        public string Email { get; set; } = null!;
 
-    public string? Phone { get; set; }
+        [Display(Name = "Số Điện Thoại")]
+        public string? Phone { get; set; }
 
-    public string Password { get; set; } = null!;
+        [Display(Name = "Mật Khẩu")]
+        public string Password { get; set; } = null!;
 
-    public string? Role { get; set; }
+        [Display(Name = "Vai Trò")]
+        public string? Role { get; set; }
+    }
 }
