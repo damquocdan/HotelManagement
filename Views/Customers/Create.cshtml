@@ -1,0 +1,166 @@
+﻿@model HotelManagement.Models.Customer
+
+@{
+    ViewData["Title"] = "Tạo Tài Khoản";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="text-center">Đăng ký Tài Khoản</h1>
+<h4 class="text-center">Khách Hàng</h4>
+<hr />
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <!-- Tên Khách Hàng -->
+            <div class="form-group row">
+                <label asp-for="Name" class="col-md-3 control-label">Họ và Tên</label>
+                <div class="col-md-9">
+                    <input asp-for="Name" class="form-control custom-input" placeholder="Nhập Họ và Tên" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+            </div>
+
+            <!-- Email -->
+            <div class="form-group row">
+                <label asp-for="Email" class="col-md-3 control-label">Địa Chỉ Email</label>
+                <div class="col-md-9">
+                    <input asp-for="Email" class="form-control custom-input" placeholder="Nhập Địa Chỉ Email" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+            </div>
+
+            <!-- Số Điện Thoại -->
+            <div class="form-group row">
+                <label asp-for="Phone" class="col-md-3 control-label">Số Điện Thoại</label>
+                <div class="col-md-9">
+                    <input asp-for="Phone" class="form-control custom-input" placeholder="Nhập Số Điện Thoại" />
+                    <span asp-validation-for="Phone" class="text-danger"></span>
+                </div>
+            </div>
+
+            <!-- Giới Tính -->
+            <div class="form-group row">
+                <label asp-for="Gender" class="col-md-3 control-label">Giới Tính</label>
+                <div class="col-md-9">
+                    <input asp-for="Gender" class="form-control custom-input" placeholder="Nhập Giới Tính" />
+                    <span asp-validation-for="Gender" class="text-danger"></span>
+                </div>
+            </div>
+
+            <!-- Ngày Sinh -->
+            <div class="form-group row">
+                <label asp-for="DateOfBirth" class="col-md-3 control-label">Ngày Sinh</label>
+                <div class="col-md-9">
+                    <input asp-for="DateOfBirth" class="form-control custom-input" placeholder="Nhập Ngày Sinh (dd/mm/yyyy)" />
+                    <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+                </div>
+            </div>
+
+            <!-- Địa Chỉ -->
+            <div class="form-group row">
+                <label asp-for="Address" class="col-md-3 control-label">Địa Chỉ</label>
+                <div class="col-md-9">
+                    <input asp-for="Address" class="form-control custom-input" placeholder="Nhập Địa Chỉ" />
+                    <span asp-validation-for="Address" class="text-danger"></span>
+                </div>
+            </div>
+
+            <!-- Mật Khẩu -->
+            <div class="form-group row">
+                <label asp-for="Password" class="col-md-3 control-label">Mật Khẩu</label>
+                <div class="col-md-9">
+                    <input asp-for="Password" class="form-control custom-input" type="password" placeholder="Nhập Mật Khẩu" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+            </div>
+
+            <!-- Nút Gửi -->
+            <div class="form-group row">
+                <div class="col-md-3 m-auto" >
+                    <input type="submit" value="Tạo Tài Khoản" class="btn btn-primary btn-submit" />
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class="btn btn-link">Quay lại danh sách</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+<style>
+    body {
+        background-color: #f5f5f5; /* Màu nền nhạt */
+        font-family: 'Arial', sans-serif;
+    }
+
+    h1, h4 {
+        color: #197fca; /* Màu chữ xanh dương */
+    }
+
+    .form-group label {
+        font-weight: bold;
+        color: #197fca; /* Màu chữ nhãn xanh dương */
+    }
+
+    .custom-input {
+        border-radius: 8px;
+        margin-top: 10px;
+        height: 45px;
+        padding-left: 15px;
+        font-size: 16px;
+        border: 1px solid #197fca;
+        transition: border-color 0.3s ease-in-out;
+    }
+
+        .custom-input:focus {
+            border-color: #ec4e45;
+            box-shadow: 0 0 5px rgba(236, 78, 69, 0.5);
+        }
+
+    .btn-primary {
+        width: 100%;
+        border-radius: 8px;
+        background-color: #197fca;
+        border: none;
+        padding: 12px;
+        color: white;
+        font-size: 18px;
+        font-weight: bold;
+        margin-top: 20px;
+    }
+
+        .btn-primary:hover {
+            background-color: #1769a1;
+        }
+
+    .btn-submit {
+        background-color: #ec4e45; /* Màu đỏ cho nút gửi */
+        border: none;
+        padding: 12px;
+        font-weight: bold;
+    }
+
+        .btn-submit:hover {
+            background-color: #e03a2d;
+        }
+
+    .btn-link {
+        color: #197fca;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+        .btn-link:hover {
+            text-decoration: underline;
+        }
+</style>

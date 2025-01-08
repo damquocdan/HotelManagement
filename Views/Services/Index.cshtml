@@ -1,0 +1,80 @@
+﻿@model IEnumerable<HotelManagement.Models.Service>
+
+@{
+    ViewData["Title"] = "Dịch vụ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .service-article {
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+        .service-article header {
+            background-color: #197fca; /* Main color */
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+    .service-title {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+
+    .service-description {
+        font-size: 1.1rem;
+        font-style: italic;
+    }
+
+    .service-details {
+        margin-top: 15px;
+        font-size: 1.1rem;
+    }
+
+    footer1 {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+        footer .btn-primary {
+            background-color: #ec4e45; /* Secondary color */
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.1rem;
+            text-decoration: none;
+            color: white;
+            border-radius: 5px;
+        }
+
+            footer .btn-primary:hover {
+                background-color: #e03d35;
+                text-decoration: none;
+            }
+</style>
+<section class="text-center mb-5">
+    <h2 class="display-4">Dịch vụ của Khách sạn Tùng Dương</h2>
+    <p class="lead">Chúng tôi cung cấp các dịch vụ chất lượng cao để mang lại sự thoải mái và tiện nghi cho quý khách.</p>
+</section>
+
+<div class="container">
+    @foreach (var item in Model)
+    {
+        <article class="service-article mb-5">
+            <header class="mb-3">
+                <h3 class="service-title">@item.Name</h3>
+                <p class="service-description">@item.Description</p>
+            </header>
+            <div class="service-details">
+                <p><strong>Giá: </strong>@item.Price.ToString("C0", new System.Globalization.CultureInfo("vi-VN"))</p>
+            </div>
+            <footer1>
+                <a href="@Url.Action("Details", new { id = item.ServiceId })" class="btn btn-primary">Xem chi tiết</a>
+            </footer1>
+        </article>
+    }
+</div>

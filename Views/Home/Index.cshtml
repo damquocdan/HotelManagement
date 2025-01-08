@@ -1,0 +1,341 @@
+﻿<style>
+    /* General Styles */
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f8f9fa;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Container */
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    /* Section Titles */
+    h2, h3 {
+        font-family: 'Helvetica', sans-serif;
+        color: #343a40;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+        h2.display-4 {
+            font-size: 3rem;
+            text-transform: uppercase;
+        }
+
+    h3 {
+        font-size: 2rem;
+    }
+
+    /* Section - Welcome */
+    section.text-center img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        height: 250px;
+    }
+
+    /* Cards for Rooms, Services, and Promotions */
+    .card {
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        height: 100%;
+    }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+    .card-body {
+        padding: 20px;
+    }
+
+    .card-title {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #343a40;
+    }
+
+    .card-text {
+        color: #6c757d;
+    }
+
+    .card img {
+        border-radius: 10px 10px 0 0;
+        height: 200px;
+        object-fit: cover;
+    }
+
+    /* Room Section */
+    .card-body .btn-primary {
+        background-color: #197fca;
+        border-color: #197fca;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+
+        .card-body .btn-primary:hover {
+            background-color: #1568a0;
+            border-color: #125784;
+        }
+
+    /* Promotion Section */
+    .card-body .btn-danger {
+        background-color: #ec4e45;
+        border-color: #ec4e45;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+
+        .card-body .btn-danger:hover {
+            background-color: #c73a32;
+            border-color: #a32e2a;
+        }
+
+    /* Services Section */
+    .bg-light {
+        background-color: #f8f9fa !important;
+    }
+
+    .card-body h5 {
+        font-size: 1.25rem;
+        color: #495057;
+        font-weight: bold;
+    }
+
+    .card-body p {
+        font-size: 1rem;
+        color: #6c757d;
+    }
+
+    /* Testimonials Section */
+    .card-body p {
+        font-size: 1.1rem;
+        font-style: italic;
+        color: #6c757d;
+    }
+
+    .font-weight-bold {
+        font-weight: bold;
+        color: #343a40;
+    }
+
+    /* Contact Form Section */
+    form .form-control {
+        border-radius: 5px;
+        border: 1px solid #ced4da;
+        padding: 12px;
+    }
+
+        form .form-control:focus {
+            border-color: #197fca;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+
+    form .btn-primary {
+        background-color: #197fca;
+        border-color: #197fca;
+        padding: 12px 30px;
+        border-radius: 5px;
+        font-weight: bold;
+        text-transform: uppercase;
+        color: white;
+    }
+
+        form .btn-primary:hover {
+            background-color: #1568a0;
+            border-color: #125784;
+        }
+
+    .hero-section {
+        background-image: url('/images/hotel-image.jpg'); /* Background image */
+        background-size: cover; /* Cover the entire section */
+        background-position: center; /* Center the background image */
+        color: white; /* Text color to make sure it is visible on the image */
+        padding: 80px 0; /* Add space inside the section */
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Optional: Adds a shadow to the text for better contrast */
+        height:500px;
+    }
+
+        .hero-section h2,
+        .hero-section p {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Optional: Make sure the text stands out */
+        }
+
+</style>
+
+<div class="container mt-4">
+    <!-- Section: Welcome -->
+    <section class="text-center mb-5 hero-section">
+        <h2 class="display-4 text-white">Chào mừng đến với Khách sạn Tùng Dương</h2>
+        <p class="lead text-white">Khách sạn cao cấp, mang đến trải nghiệm nghỉ dưỡng đẳng cấp và dịch vụ tuyệt vời.</p>
+    </section>
+
+    <!-- Section: Rooms -->
+    <section class="mb-5">
+        <h3 class="text-center mb-4">Phòng của chúng tôi</h3>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="~/images/room1.jpg" class="card-img-top" alt="Phòng 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Phòng Deluxe</h5>
+                        <p class="card-text">Một không gian sang trọng với các tiện nghi hiện đại, phù hợp cho cặp đôi hoặc gia đình nhỏ.</p>
+                        <p class="card-text"><strong>Giá: 2,000,000 VND/đêm</strong></p>
+                        <a href="#" class="btn btn-primary">Đặt phòng ngay</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="~/images/room2.jpg" class="card-img-top" alt="Phòng 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Phòng Superior</h5>
+                        <p class="card-text">Phòng rộng rãi với không gian sống lý tưởng cho chuyến công tác dài ngày.</p>
+                        <p class="card-text"><strong>Giá: 1,800,000 VND/đêm</strong></p>
+                        <a href="#" class="btn btn-primary">Đặt phòng ngay</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="~/images/room3.jpg" class="card-img-top" alt="Phòng 3">
+                    <div class="card-body">
+                        <h5 class="card-title">Phòng Standard</h5>
+                        <p class="card-text">Phòng tiện nghi, lý tưởng cho khách du lịch và khách hàng có ngân sách hợp lý.</p>
+                        <p class="card-text"><strong>Giá: 1,200,000 VND/đêm</strong></p>
+                        <a href="#" class="btn btn-primary">Đặt phòng ngay</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Services -->
+    <section class="bg-light p-5 mb-5">
+        <h3 class="text-center mb-4">Dịch vụ của chúng tôi</h3>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="~/images/spa.jpg" class="card-img-top" alt="Spa">
+                    <div class="card-body">
+                        <h5 class="card-title">Dịch vụ Spa</h5>
+                        <p class="card-text">Thư giãn và tái tạo năng lượng với các liệu pháp spa tuyệt vời từ các chuyên gia của chúng tôi.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="~/images/restaurant.jpg" class="card-img-top" alt="Nhà hàng">
+                    <div class="card-body">
+                        <h5 class="card-title">Nhà hàng 5 sao</h5>
+                        <p class="card-text">Thưởng thức ẩm thực cao cấp với các món ăn quốc tế và đặc sản địa phương tại nhà hàng của chúng tôi.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="~/images/gym.jpg" class="card-img-top" alt="Gym">
+                    <div class="card-body">
+                        <h5 class="card-title">Phòng Gym</h5>
+                        <p class="card-text">Phòng gym hiện đại với đầy đủ thiết bị, giúp bạn duy trì sức khỏe và thể lực trong suốt kỳ nghỉ.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Promotions -->
+    <section class="text-center mb-5">
+        <h3 class="mb-4">Khuyến mãi đặc biệt</h3>
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <div class="card">
+                    <img src="~/images/promotion1.jpg" class="card-img-top" alt="Khuyến mãi 1" >
+                    <div class="card-body">
+                        <h5 class="card-title">Giảm giá 20% cho phòng Deluxe</h5>
+                        <p class="card-text">Đặt phòng Deluxe ngay hôm nay và nhận ưu đãi giảm giá 20% cho các kỳ nghỉ dài hơn 3 đêm.</p>
+                        <a href="#" class="btn btn-danger">Chi tiết</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="card">
+                    <img src="~/images/promotion2.jpg" class="card-img-top" alt="Khuyến mãi 2">
+                    <div class="card-body">
+                        <h5 class="card-title">Combo dịch vụ Spa + Phòng nghỉ</h5>
+                        <p class="card-text">Đặt phòng và sử dụng dịch vụ spa với giá ưu đãi, hoàn hảo cho kỳ nghỉ thư giãn của bạn.</p>
+                        <a href="#" class="btn btn-danger">Chi tiết</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Testimonials -->
+    <section class="bg-light p-5 mb-5">
+        <h3 class="text-center mb-4">Đánh giá khách hàng</h3>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="~/images/customer1.jpg" class="card-img-top" alt="Khách hàng 1">
+                    <div class="card-body">
+                        <p class="card-text">"Khách sạn tuyệt vời, dịch vụ tốt và phòng nghỉ đẹp. Tôi sẽ quay lại lần nữa!"</p>
+                        <p class="font-weight-bold">Nguyễn Văn A</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="~/images/customer2.jpg" class="card-img-top" alt="Khách hàng 2">
+                    <div class="card-body">
+                        <p class="card-text">"Rất hài lòng với trải nghiệm nghỉ dưỡng tại khách sạn. Mọi thứ đều tuyệt vời."</p>
+                        <p class="font-weight-bold">Trần Thị B</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="~/images/customer3.jpg" class="card-img-top" alt="Khách hàng 3">
+                    <div class="card-body">
+                        <p class="card-text">"Chất lượng dịch vụ và tiện nghi rất tuyệt vời. Nhân viên thân thiện và nhiệt tình!"</p>
+                        <p class="font-weight-bold">Lê Quang C</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Contact Form -->
+    <section class="mb-5">
+        <h3 class="text-center mb-4">Liên hệ với chúng tôi</h3>
+        <form>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <input type="text" class="form-control" placeholder="Họ và tên" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <input type="email" class="form-control" placeholder="Email" required>
+                </div>
+                <div class="col-md-12 mb-3">
+                    <textarea class="form-control" rows="4" placeholder="Lời nhắn" required></textarea>
+                </div>
+                <div class="col-md-12 text-center">
+                    <button type="submit" class="btn btn-primary">Gửi yêu cầu</button>
+                </div>
+            </div>
+        </form>
+    </section>
+</div>

@@ -1,0 +1,89 @@
+﻿@model IEnumerable<HotelManagement.Models.Room>
+
+@{
+    ViewData["Title"] = "Danh sách phòng";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    /* Card Styling */
+.card {
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.card-img-top {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.card-body {
+    padding: 15px;
+}
+
+.card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.card-text {
+    font-size: 1rem;
+    margin: 5px 0;
+}
+
+.btn-sm {
+    font-size: 0.875rem;
+    padding: 5px 10px;
+}
+
+/* Grid System */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+
+/* Spacing */
+h1 {
+    font-size: 2rem;
+    color: #333;
+    text-align: center;
+}
+
+.card-text strong {
+    font-weight: bold;
+}
+
+</style>
+<h1 class="text-center my-4">Danh sách phòng khách sạn</h1>
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm border-light">
+                <!-- Dynamic image (use real image URL if available) -->
+                <img src="~/images/room.jpg" class="card-img-top" alt="Ảnh phòng" style="height: 200px; object-fit: cover;">
+
+                <div class="card-body">
+                    <h5 class="card-title">@item.RoomType</h5>
+                    <p class="card-text"><strong>Số phòng:</strong> @item.RoomNumber</p>
+                    <p class="card-text"><strong>Giá mỗi đêm:</strong> @item.PricePerNight</p>
+                    <p class="card-text"><strong>Trạng thái:</strong> @item.Status</p>
+                    <p class="card-text"><strong>Khách sạn:</strong> @item.Hotel.Name</p>
+                    <div class="d-flex justify-content-between">
+                        <a href="@Url.Action("Details", new { id = item.RoomId })" class="btn btn-primary btn-sm">Xem chi tiết</a>
+                        <a href="@Url.Action("Book", new { id = item.RoomId })" class="btn btn-success btn-sm">Đặt phòng</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
