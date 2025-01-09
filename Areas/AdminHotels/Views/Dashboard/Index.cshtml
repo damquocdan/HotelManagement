@@ -1,8 +1,86 @@
 ﻿@{
-    ViewData["Title"] = "Dashboard";
-    Layout = "~/Areas/AdminHotels/Views/Shared/Admin.cshtml";
+    ViewData["Title"] = "Trang Thống Kê";
 }
 
-<h1>Dashboard</h1>
-<p>Đây là nội dung trang chủ admin</p>
+<!-- Include Font Awesome for icons -->
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
 
+<div class="row" style="margin-bottom: 30px;">
+    <div class="col-md-4" style="text-align: center; background-color: #f8f9fa; padding: 20px; border-radius: 8px;">
+        <h3 style="font-size: 18px; color: #343a40;">Tổng Số Khách Sạn</h3>
+        <p style="font-size: 24px; color: #007bff;">@ViewBag.TotalHotels</p>
+    </div>
+
+    <div class="col-md-4" style="text-align: center; background-color: #f8f9fa; padding: 20px; border-radius: 8px;">
+        <h3 style="font-size: 18px; color: #343a40;">Tổng Số Nhân Viên</h3>
+        <p style="font-size: 24px; color: #007bff;">@ViewBag.TotalStaff</p>
+    </div>
+
+    <div class="col-md-4" style="text-align: center; background-color: #f8f9fa; padding: 20px; border-radius: 8px;">
+        <h3 style="font-size: 18px; color: #343a40;">Tổng Số Phòng</h3>
+        <p style="font-size: 24px; color: #007bff;">@ViewBag.TotalRooms</p>
+    </div>
+</div>
+
+<div class="row" style="margin-bottom: 30px;">
+    <div class="col-md-4" style="text-align: center; background-color: #f8f9fa; padding: 20px; border-radius: 8px;">
+        <h3 style="font-size: 18px; color: #343a40;">Tổng Số Khách Hàng</h3>
+        <p style="font-size: 24px; color: #007bff;">@ViewBag.TotalCustomers</p>
+    </div>
+
+    <div class="col-md-4" style="text-align: center; background-color: #f8f9fa; padding: 20px; border-radius: 8px;">
+        <h3 style="font-size: 18px; color: #343a40;">Tổng Số Đặt Phòng</h3>
+        <p style="font-size: 24px; color: #007bff;">@ViewBag.TotalBookings</p>
+    </div>
+
+    <div class="col-md-4" style="text-align: center; background-color: #f8f9fa; padding: 20px; border-radius: 8px;">
+        <h3 style="font-size: 18px; color: #343a40;">Tổng Số Dịch Vụ</h3>
+        <p style="font-size: 24px; color: #007bff;">@ViewBag.TotalServices</p>
+    </div>
+</div>
+@* 
+<div class="row" style="margin-bottom: 30px;">
+    <div class="col-md-12" style="text-align: center; background-color: #f8f9fa; padding: 20px; border-radius: 8px;">
+        <h3 style="font-size: 18px; color: #343a40;">Tổng Số Đánh Giá</h3>
+        <p style="font-size: 24px; color: #007bff;">@ViewBag.TotalReviews</p>
+    </div>
+</div>
+
+<!-- Display Average Rating for each Hotel -->
+<div class="row" style="margin-top: 30px;">
+    <div class="col-md-12">
+        <h3 style="font-size: 22px; color: #343a40;">Đánh Giá Trung Bình Của Các Khách Sạn</h3>
+        <table class="table" style="border-collapse: collapse; width: 100%; margin-top: 15px;">
+            <thead style="background-color: #343a40; color: white;">
+                <tr>
+                    <th style="padding: 10px; text-align: left;">Tên Khách Sạn</th>
+                    <th style="padding: 10px; text-align: left;">Đánh Giá Trung Bình</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var hotel in ViewBag.HotelRatings)
+                {
+                    <tr style="background-color: #f8f9fa; border-bottom: 1px solid #ddd;">
+                        <td style="padding: 10px;">@hotel.HotelName</td>
+                        <td style="padding: 10px;">
+                            @if (hotel.AverageRating == 0)
+                            {
+                                <span style="color: gray;">No ratings yet</span>
+                            }
+                            else
+                            {
+                                @foreach (var i in Enumerable.Range(1, 5))
+                                {
+                                    <i class="fas fa-star" style="color:@(i <= hotel.AverageRating ? "orange" : "gray")"></i>
+                                }
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+ *@

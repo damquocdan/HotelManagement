@@ -46,12 +46,36 @@ namespace HotelManagement.Controllers
         }
 
         // GET: Bookings/Create
-        public IActionResult Create()
+        public IActionResult Create(int roomId)
         {
-            ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "CustomerId");
-            ViewData["RoomId"] = new SelectList(_context.Rooms, "RoomId", "RoomId");
+            var customerId = HttpContext.Session.GetInt32("CustomerId");
+            if (customerId == null)
+            {
+                TempData["Error"] = "Bạn cần đăng nhập để sử dụng chức năng này."; // Error message
+                return RedirectToAction("Index", "LoginC"); // Redirect to login page
+            }
+
+            var customer = _context.Customers.Find(customerId);
+            var room = _context.Rooms
+    .Include(h => h.Hotel)  // This will include the related Hotel entity
+    .FirstOrDefault(r => r.RoomId == roomId);
+
+            if (customer == null || room == null)
+            {
+                return NotFound();
+            }
+
+            // Pass customer and room data to the view
+            ViewData["CustomerId"] = customerId;
+            ViewData["CustomerName"] = customer.Name;
+            ViewData["RoomId"] = roomId;
+            ViewData["RoomNumber"] = room.RoomNumber;  // Example: pass room number to the view
+            ViewData["Hotel"] = room.Hotel.Name;  // Example: pass room type to the view
+            ViewData["PricePerNight"] = room.PricePerNight;  // Example: pass price to the view
+
             return View();
         }
+
 
         // POST: Bookings/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.

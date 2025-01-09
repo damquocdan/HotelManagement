@@ -6,10 +6,6 @@
 }
 
 <h1>Danh Sách Đánh Giá</h1>
-
-<p>
-    <a asp-action="Create" class="btn btn-primary">Tạo Mới</a>
-</p>
 <table class="table table-striped">
     <thead>
         <tr>
@@ -45,14 +41,12 @@
                     @Html.DisplayFor(modelItem => item.ReviewDate)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Customer.CustomerId)
+                    @Html.DisplayFor(modelItem => item.Customer.Name)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Hotel.HotelId)
+                    @Html.DisplayFor(modelItem => item.Hotel.Name)
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.ReviewId" class="btn btn-warning btn-sm">Sửa</a> 
-                    <a asp-action="Details" asp-route-id="@item.ReviewId" class="btn btn-info btn-sm">Chi Tiết</a> 
                     <a asp-action="Delete" asp-route-id="@item.ReviewId" class="btn btn-danger btn-sm">Xóa</a>
                 </td>
             </tr>

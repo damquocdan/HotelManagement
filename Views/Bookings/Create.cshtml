@@ -13,34 +13,56 @@
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <!-- Customer ID (Pre-selected) -->
             <div class="form-group">
-                <label asp-for="CustomerId" class="control-label"></label>
-                <select asp-for="CustomerId" class ="form-control" asp-items="ViewBag.CustomerId"></select>
+                <label class="control-label">Customer</label>
+                <input type="text" class="form-control" value="@ViewData["CustomerName"]" readonly />
+                <input type="hidden" asp-for="CustomerId" class="form-control" value="@ViewData["CustomerId"]" readonly />
+            </div>
+
+            <!-- Room Information (Pre-selected and Read-only) -->
+            <div class="form-group">
+                <label class="control-label">Room Number</label>
+                <input type="text" class="form-control" value="@ViewData["RoomNumber"]" readonly />
+                <input type="hidden" asp-for="RoomId" value="@ViewData["RoomId"]" />
             </div>
             <div class="form-group">
-                <label asp-for="RoomId" class="control-label"></label>
-                <select asp-for="RoomId" class ="form-control" asp-items="ViewBag.RoomId"></select>
+                <label class="control-label">Room Type</label>
+                <input type="text" class="form-control" value="@ViewData["Hotel"]" readonly />
             </div>
             <div class="form-group">
-                <label asp-for="CheckInDate" class="control-label"></label>
-                <input asp-for="CheckInDate" class="form-control" />
+                <label class="control-label">Price per Night</label>
+                <input type="text" class="form-control" value="@ViewData["PricePerNight"]" readonly id="pricePerNight" />
+            </div>
+
+            <!-- Check-in and Check-out Dates -->
+            <div class="form-group">
+                <label asp-for="CheckInDate" class="control-label">Check-in Date</label>
+                <input asp-for="CheckInDate" type="date" class="form-control" id="checkInDate" onchange="calculateTotalPrice()" />
                 <span asp-validation-for="CheckInDate" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="CheckOutDate" class="control-label"></label>
-                <input asp-for="CheckOutDate" class="form-control" />
+                <label asp-for="CheckOutDate" class="control-label">Check-out Date</label>
+                <input asp-for="CheckOutDate" type="date" class="form-control" id="checkOutDate" onchange="calculateTotalPrice()" />
                 <span asp-validation-for="CheckOutDate" class="text-danger"></span>
             </div>
+
+            <!-- Total Price -->
             <div class="form-group">
-                <label asp-for="TotalPrice" class="control-label"></label>
-                <input asp-for="TotalPrice" class="form-control" />
+                <label asp-for="TotalPrice" class="control-label">Total Price</label>
+                <input asp-for="TotalPrice" class="form-control" readonly id="totalPrice" />
                 <span asp-validation-for="TotalPrice" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Status" class="control-label"></label>
-                <input asp-for="Status" class="form-control" />
+                <label asp-for="Status" class="control-label">Phương Thức Thanh Toán</label>
+                <select asp-for="Status" class="form-control">
+                    <option value="Confirmed">Thanh toán qua thẻ</option>
+                    <option value="Pending">Thanh toán trực tiếp</option>
+                </select>
                 <span asp-validation-for="Status" class="text-danger"></span>
             </div>
+            <!-- Submit Button -->
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
@@ -53,5 +75,35 @@
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }
+
+<script>
+    function calculateTotalPrice() {
+        var checkInDate = document.getElementById("checkInDate").value;
+        var checkOutDate = document.getElementById("checkOutDate").value;
+        var pricePerNight = parseFloat(document.getElementById("pricePerNight").value);
+
+        if (checkInDate && checkOutDate && !isNaN(pricePerNight)) {
+            var checkIn = new Date(checkInDate);
+            var checkOut = new Date(checkOutDate);
+            var timeDifference = checkOut - checkIn;
+
+            // Calculate the difference in days
+            var numberOfDays = timeDifference / (1000 * 3600 * 24);
+
+            if (numberOfDays > 0) {
+                // Calculate the total price
+                var totalPrice = numberOfDays * pricePerNight;
+                document.getElementById("totalPrice").value = totalPrice.toFixed(2);
+            } else {
+                // Invalid dates, reset total price
+                document.getElementById("totalPrice").value = "Invalid dates";
+            }
+        } else {
+            document.getElementById("totalPrice").value = "";
+        }
+    }
+</script>

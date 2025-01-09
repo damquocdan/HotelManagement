@@ -9,8 +9,8 @@ using HotelManagement.Models;
 
 namespace HotelManagement.Areas.AdminHotels.Controllers
 {
-    [Area("AdminHotels")]
-    public class RoomsController : Controller
+ 
+    public class RoomsController : BaseController
     {
         private readonly HotelManagementContext _context;
 
@@ -48,7 +48,7 @@ namespace HotelManagement.Areas.AdminHotels.Controllers
         // GET: AdminHotels/Rooms/Create
         public IActionResult Create()
         {
-            ViewData["HotelId"] = new SelectList(_context.Hotels, "HotelId", "HotelId");
+            ViewData["HotelId"] = new SelectList(_context.Hotels, "HotelId", "Name");
             return View();
         }
 
@@ -82,7 +82,7 @@ namespace HotelManagement.Areas.AdminHotels.Controllers
             {
                 return NotFound();
             }
-            ViewData["HotelId"] = new SelectList(_context.Hotels, "HotelId", "HotelId", room.HotelId);
+            ViewData["HotelId"] = new SelectList(_context.Hotels, "HotelId", "Name", room.HotelId);
             return View(room);
         }
 

@@ -9,8 +9,7 @@ using HotelManagement.Models;
 
 namespace HotelManagement.Areas.AdminHotels.Controllers
 {
-    [Area("AdminHotels")]
-    public class BookingsController : Controller
+    public class BookingsController : BaseController
     {
         private readonly HotelManagementContext _context;
 
@@ -44,6 +43,18 @@ namespace HotelManagement.Areas.AdminHotels.Controllers
             }
 
             return View(booking);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult UpdateStatus(int id, string status)
+        {
+            var booking = _context.Bookings.FirstOrDefault(b => b.BookingId == id);
+            if (booking != null)
+            {
+                booking.Status = status;
+                _context.SaveChanges();
+            }
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: AdminHotels/Bookings/Create

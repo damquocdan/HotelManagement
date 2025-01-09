@@ -9,8 +9,8 @@ using HotelManagement.Models;
 
 namespace HotelManagement.Areas.AdminHotels.Controllers
 {
-    [Area("AdminHotels")]
-    public class HotelsController : Controller
+ 
+    public class HotelsController : BaseController
     {
         private readonly HotelManagementContext _context;
 

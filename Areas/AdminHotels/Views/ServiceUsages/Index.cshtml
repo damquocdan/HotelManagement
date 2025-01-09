@@ -6,11 +6,6 @@
 }
 
 <h1 style="color: #197fca;">Danh Sách Dịch Vụ Sử Dụng</h1>
-
-<p>
-    <a asp-action="Create" class="btn" style="background-color: #ec4e45; border-color: #ec4e45; color: white;">Tạo Mới</a>
-</p>
-
 <table class="table table-striped">
     <thead>
         <tr style="background-color: #197fca; color: white;">
@@ -21,7 +16,13 @@
                 @Html.DisplayNameFor(model => model.TotalPrice)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Booking)
+                Khách hàng
+            </th>
+            <th>
+                Phòng số
+            </th>
+            <th>
+                Khách sạn
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Service)
@@ -40,14 +41,18 @@
                     @Html.DisplayFor(modelItem => item.TotalPrice)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Booking.BookingId)
+                    @Html.DisplayFor(modelItem => item.Booking.Customer.Name)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Service.ServiceId)
+                    @Html.DisplayFor(modelItem => item.Booking.Room.RoomNumber)
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.UsageId" class="btn btn-primary" style="background-color: #197fca; border-color: #197fca; color: white;">Chỉnh Sửa</a> 
-                    <a asp-action="Details" asp-route-id="@item.UsageId" class="btn btn-info" style="background-color: #ec4e45; border-color: #ec4e45; color: white;">Chi Tiết</a> 
+                    @Html.DisplayFor(modelItem => item.Booking.Room.Hotel.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Service.Name)
+                </td>
+                <td>
                     <a asp-action="Delete" asp-route-id="@item.UsageId" class="btn btn-danger" style="background-color: #ec4e45; border-color: #ec4e45; color: white;">Xóa</a>
                 </td>
             </tr>

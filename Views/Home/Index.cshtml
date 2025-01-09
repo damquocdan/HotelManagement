@@ -1,4 +1,5 @@
-﻿<style>
+﻿@model IEnumerable<HotelManagement.Models.Room>
+<style>
     /* General Styles */
     body {
         font-family: 'Arial', sans-serif;
@@ -187,39 +188,28 @@
     <section class="mb-5">
         <h3 class="text-center mb-4">Phòng của chúng tôi</h3>
         <div class="row">
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="~/images/room1.jpg" class="card-img-top" alt="Phòng 1">
-                    <div class="card-body">
-                        <h5 class="card-title">Phòng Deluxe</h5>
-                        <p class="card-text">Một không gian sang trọng với các tiện nghi hiện đại, phù hợp cho cặp đôi hoặc gia đình nhỏ.</p>
-                        <p class="card-text"><strong>Giá: 2,000,000 VND/đêm</strong></p>
-                        <a href="#" class="btn btn-primary">Đặt phòng ngay</a>
+            @foreach (var item in Model)
+            {
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow-sm border-light">
+                        <!-- Dynamic image (use real image URL if available) -->
+                        <img src="~/images/room.jpg" class="card-img-top" alt="Ảnh phòng" style="height: 200px; object-fit: cover;">
+
+                        <div class="card-body">
+                            <h5 class="card-title">@item.RoomType</h5>
+                            <p class="card-text"><strong>Số phòng:</strong> @item.RoomNumber</p>
+                            <p class="card-text"><strong>Giá mỗi đêm:</strong> @item.PricePerNight</p>
+                            <p class="card-text"><strong>Khách sạn:</strong> @item.Hotel.Name</p>
+                            <div class="d-flex justify-content-between">
+                                <a href="@Url.Action("Details","Rooms", new { id = item.RoomId })" class="btn btn-primary btn-sm">Xem chi tiết</a>
+                                <a asp-action="Create" asp-controller="Bookings" asp-route-roomId="@item.RoomId" asp-route-customerId="@Context.Session.GetInt32("CustomerId")" class="btn btn-success">
+                                    Đặt phòng
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="~/images/room2.jpg" class="card-img-top" alt="Phòng 2">
-                    <div class="card-body">
-                        <h5 class="card-title">Phòng Superior</h5>
-                        <p class="card-text">Phòng rộng rãi với không gian sống lý tưởng cho chuyến công tác dài ngày.</p>
-                        <p class="card-text"><strong>Giá: 1,800,000 VND/đêm</strong></p>
-                        <a href="#" class="btn btn-primary">Đặt phòng ngay</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="~/images/room3.jpg" class="card-img-top" alt="Phòng 3">
-                    <div class="card-body">
-                        <h5 class="card-title">Phòng Standard</h5>
-                        <p class="card-text">Phòng tiện nghi, lý tưởng cho khách du lịch và khách hàng có ngân sách hợp lý.</p>
-                        <p class="card-text"><strong>Giá: 1,200,000 VND/đêm</strong></p>
-                        <a href="#" class="btn btn-primary">Đặt phòng ngay</a>
-                    </div>
-                </div>
-            </div>
+            }
         </div>
     </section>
 

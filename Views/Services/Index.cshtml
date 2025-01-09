@@ -73,7 +73,10 @@
                 <p><strong>Giá: </strong>@item.Price.ToString("C0", new System.Globalization.CultureInfo("vi-VN"))</p>
             </div>
             <footer1>
-                <a href="@Url.Action("Details", new { id = item.ServiceId })" class="btn btn-primary">Xem chi tiết</a>
+@*                 <a asp-controller="ServiceUsages" asp-action="create" asp-route-serviceId="@item.ServiceId" asp-route-customerId="@Context.Session.GetInt32("CustomerId")" class="btn btn-primary">
+                    Đặt dịch vụ
+                </a> *@
+                <a href="@Url.Action("Details", new { id = item.ServiceId })" >Xem chi tiết</a>
             </footer1>
         </article>
     }

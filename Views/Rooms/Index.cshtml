@@ -75,11 +75,12 @@ h1 {
                     <h5 class="card-title">@item.RoomType</h5>
                     <p class="card-text"><strong>Số phòng:</strong> @item.RoomNumber</p>
                     <p class="card-text"><strong>Giá mỗi đêm:</strong> @item.PricePerNight</p>
-                    <p class="card-text"><strong>Trạng thái:</strong> @item.Status</p>
                     <p class="card-text"><strong>Khách sạn:</strong> @item.Hotel.Name</p>
                     <div class="d-flex justify-content-between">
                         <a href="@Url.Action("Details", new { id = item.RoomId })" class="btn btn-primary btn-sm">Xem chi tiết</a>
-                        <a href="@Url.Action("Book", new { id = item.RoomId })" class="btn btn-success btn-sm">Đặt phòng</a>
+                        <a asp-action="Create" asp-controller="Bookings" asp-route-roomId="@item.RoomId" asp-route-customerId="@Context.Session.GetInt32("CustomerId")" class="btn btn-success">
+                            Đặt phòng
+                        </a>
                     </div>
                 </div>
             </div>

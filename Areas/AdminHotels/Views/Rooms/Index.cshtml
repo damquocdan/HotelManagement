@@ -46,10 +46,21 @@
                     @Html.DisplayFor(modelItem => item.PricePerNight)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Status)
+                    @if (item.Status == "Available")
+                    {
+                        <span class="badge bg-success">Có sẵn</span>
+                    }
+                    else if (item.Status == "Booked")
+                    {
+                        <span class="badge bg-danger">Đã đặt</span>
+                    }
+                    else if (item.Status == "Maintenance")
+                    {
+                        <span class="badge btn-primary">Bảo trì</span>
+                    }
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Hotel.HotelId)
+                    @Html.DisplayFor(modelItem => item.Hotel.Name)
                 </td>
                 <td>
                     <a asp-action="Edit" asp-route-id="@item.RoomId" class="btn btn-warning btn-sm">Chỉnh Sửa</a> 

@@ -33,8 +33,24 @@
             @Html.DisplayNameFor(model => model.Status)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Status)
+            @if (Model.Status == "Available")
+            {
+                <span class="badge bg-success">Có sẵn</span>
+            }
+            else if (Model.Status == "Booked")
+            {
+                <span class="badge bg-danger">Đã đặt</span>
+            }
+            else if (Model.Status == "Maintenance")
+            {
+                <span class="badge bg-warning">Bảo trì</span>
+            }
+            else
+            {
+                <span class="badge bg-secondary">Không xác định</span>
+            }
         </dd>
+
         <dt class="col-sm-2" style="color: #197fca;">
             @Html.DisplayNameFor(model => model.Hotel)
         </dt>

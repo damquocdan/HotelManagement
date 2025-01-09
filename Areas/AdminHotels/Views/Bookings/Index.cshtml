@@ -4,12 +4,16 @@
     ViewData["Title"] = "Danh Sách Đặt Phòng";
     Layout = "~/Areas/AdminHotels/Views/Shared/Admin.cshtml";
 }
-
+<style>
+    form select.form-select-sm {
+        width: 100%;
+        padding: 5px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+    }
+</style>
 <h1 style="color: #197fca;">Danh Sách Đặt Phòng</h1>
 
-<p>
-    <a asp-action="Create" style="color: #197fca;">Tạo Mới</a>
-</p>
 <table class="table table-striped">
     <thead>
         <tr>
@@ -48,7 +52,14 @@
                     @Html.DisplayFor(modelItem => item.TotalPrice)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Status)
+                    <form asp-action="UpdateStatus" method="post" style="display: inline;">
+                        <input type="hidden" name="id" value="@item.BookingId" />
+                        <select name="status" class="form-select form-select-sm" onchange="this.form.submit()">
+                            <option value="Confirmed" selected="@(item.Status == "Confirmed")">Thanh toán thành công</option>
+                            <option value="Pending" selected="@(item.Status == "Pending")">Chưa thanh toán</option>
+                            <option value="Cancelled" selected="@(item.Status == "Cancelled")">Huỷ đặt phòng</option>
+                        </select>
+                    </form>
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Customer.Name)
@@ -57,8 +68,6 @@
                     @Html.DisplayFor(modelItem => item.Room.RoomNumber)
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.BookingId" style="color: #ec4e45;">Chỉnh Sửa</a> 
-                    <a asp-action="Details" asp-route-id="@item.BookingId" style="color: #ec4e45;">Chi Tiết</a> 
                     <a asp-action="Delete" asp-route-id="@item.BookingId" style="color: #ec4e45;">Xóa</a>
                 </td>
             </tr>
