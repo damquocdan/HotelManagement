@@ -10,11 +10,13 @@
     header {
         background-color: #197fca; /* Blue */
         color: #fff;
+        text-align: center;
+        padding: 40px 0;
     }
 
         header h1 {
             font-size: 3rem;
-            margin: 0;
+            margin-bottom: 10px;
         }
 
         header p {
@@ -38,11 +40,20 @@
         font-size: 2.5rem;
         color: #197fca; /* Blue */
         margin-bottom: 20px;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
+
+        h2 i {
+            margin-right: 10px;
+        }
 
     h3 {
         font-size: 1.8rem;
-        color: #ec4e45; /* Red */
+        color: #ed3d34; /* Red */
+        margin-bottom: 15px;
     }
 
     p {
@@ -52,12 +63,18 @@
     }
 
     /* Section Specific Styles */
-    #intro,#rooms, #dining, #location, #amenities {
+    #intro,
+    #rooms,
+    #dining,
+    #location,
+    #amenities {
         border-left: 10px solid #197fca; /* Blue border for emphasis */
+        padding-left: 20px;
     }
 
     #services {
-        background-color: #ec4e45; /* Red background */
+        background-color: #ed3d34; /* Red background */
+        color: white;
     }
 
     /* Button Styling */
@@ -71,15 +88,17 @@
         border-radius: 5px;
         text-align: center;
         text-decoration: none;
+        display: inline-block;
+        margin-top: 20px;
     }
 
         .btn:hover {
-            background-color: #ec4e45; /* Red on hover */
+            background-color: #ed3d34; /* Red on hover */
         }
 
     /* Custom Text Styles */
     .highlight {
-        color: #ec4e45; /* Red highlight */
+        color: #ed3d34; /* Red highlight */
         font-weight: bold;
     }
 </style>
@@ -91,50 +110,46 @@
     </div>
 </header>
 
-<!-- Section: Giới thiệu -->
 <section id="intro" class="section">
     <div class="container">
-        <h2>Giới thiệu về Khách Sạn Tùng Dương</h2>
+        <h2><i class="fas fa-info-circle"></i> Giới thiệu về Khách Sạn Tùng Dương</h2>
         <p>Khách sạn Tùng Dương là một trong những điểm đến lý tưởng cho du khách khi tìm kiếm một không gian nghỉ dưỡng thoải mái, tiện nghi và sang trọng. Nằm ở vị trí thuận lợi tại trung tâm thành phố, khách sạn Tùng Dương không chỉ là nơi nghỉ ngơi lý tưởng mà còn là nơi lý tưởng để khám phá các địa điểm du lịch nổi tiếng, nhà hàng, khu mua sắm, và các tiện ích công cộng. Với thiết kế hiện đại kết hợp phong cách kiến trúc truyền thống, khách sạn mang đến một không gian đẳng cấp, sang trọng nhưng vẫn rất gần gũi và ấm cúng.</p>
     </div>
 </section>
 
-<!-- Section: Phòng nghỉ -->
 <section id="rooms" class="section bg-light">
     <div class="container">
-        <h2>Không gian và phòng nghỉ tiện nghi</h2>
+        <h2><i class="fas fa-bed"></i> Không gian và phòng nghỉ tiện nghi</h2>
         <p>Khách sạn Tùng Dương sở hữu một loạt các phòng nghỉ đa dạng từ phòng đơn, phòng đôi đến các căn hộ cao cấp, tất cả đều được thiết kế tinh tế và trang bị đầy đủ các tiện nghi hiện đại. Mỗi phòng đều có không gian rộng rãi, trang trí đẹp mắt với nội thất cao cấp, tạo cảm giác thư giãn ngay khi bạn bước vào. Các tiện ích trong phòng bao gồm giường ngủ thoải mái, hệ thống điều hòa không khí, TV màn hình phẳng với nhiều kênh truyền hình quốc tế, minibar, và đặc biệt là Wi-Fi miễn phí tốc độ cao.</p>
     </div>
 </section>
 
-<!-- Section: Dịch vụ -->
 <section id="services" class="section">
     <div class="container">
-        <h2>Dịch vụ chất lượng cao</h2>
-        <p style="color:wheat">Khách sạn Tùng Dương cam kết mang đến cho khách hàng những dịch vụ chăm sóc khách hàng tuyệt vời. Đội ngũ nhân viên chuyên nghiệp và thân thiện luôn sẵn sàng hỗ trợ mọi nhu cầu của khách hàng từ khi đặt phòng cho đến khi trả phòng. Dù bạn đến đây để công tác, du lịch hay nghỉ dưỡng, khách sạn luôn đảm bảo sẽ đáp ứng mọi yêu cầu của bạn một cách nhanh chóng và hiệu quả.</p>
+        <h2><i class="fas fa-concierge-bell"></i> Dịch vụ chất lượng cao</h2>
+        <p>Khách sạn Tùng Dương cam kết mang đến cho khách hàng những dịch vụ chăm sóc khách hàng tuyệt vời. Đội ngũ nhân viên chuyên nghiệp và thân thiện luôn sẵn sàng hỗ trợ mọi nhu cầu của khách hàng từ khi đặt phòng cho đến khi trả phòng. Dù bạn đến đây để công tác, du lịch hay nghỉ dưỡng, khách sạn luôn đảm bảo sẽ đáp ứng mọi yêu cầu của bạn một cách nhanh chóng và hiệu quả.</p>
     </div>
 </section>
 
-<!-- Section: Ẩm thực -->
 <section id="dining" class="section bg-light">
     <div class="container">
-        <h2>Ẩm thực tại Khách sạn Tùng Dương</h2>
+        <h2><i class="fas fa-utensils"></i> Ẩm thực tại Khách sạn Tùng Dương</h2>
         <p>Không chỉ có không gian nghỉ dưỡng tuyệt vời, Khách sạn Tùng Dương còn là nơi lý tưởng để thưởng thức những món ăn ngon tại nhà hàng của khách sạn. Nhà hàng phục vụ các món ăn đa dạng từ các món ăn đặc sản địa phương đến các món ăn quốc tế, được chế biến bởi những đầu bếp tài ba, mang đến cho khách hàng những trải nghiệm ẩm thực độc đáo và tuyệt vời.</p>
     </div>
 </section>
 
-<!-- Section: Vị trí và tiện ích -->
 <section id="location" class="section">
     <div class="container">
-        <h2>Vị trí thuận lợi và các tiện ích xung quanh</h2>
+        <h2><i class="fas fa-map-marker-alt"></i> Vị trí thuận lợi và các tiện ích xung quanh</h2>
         <p>Khách sạn Tùng Dương tọa lạc tại vị trí trung tâm của thành phố, rất dễ dàng di chuyển đến các điểm du lịch nổi tiếng, khu mua sắm, và các địa điểm vui chơi giải trí. Các khách hàng có thể dễ dàng tham quan các địa điểm văn hóa, di tích lịch sử, các công viên và chợ địa phương, tạo cơ hội cho những chuyến đi thú vị và khám phá thành phố.</p>
     </div>
 </section>
 
-<!-- Section: Tiện ích khác -->
 <section id="amenities" class="section bg-light">
     <div class="container">
-        <h2>Các tiện ích khác</h2>
+        <h2><i class="fas fa-puzzle-piece"></i> Các tiện ích khác</h2>
         <p>Khách sạn Tùng Dương còn cung cấp các tiện ích và dịch vụ hỗ trợ như phòng hội nghị, phòng tập gym, spa, và các khu vực giải trí khác. Nếu bạn đang tìm kiếm một nơi để thư giãn và tái tạo năng lượng, spa tại khách sạn là sự lựa chọn lý tưởng với các liệu pháp chăm sóc sức khỏe và sắc đẹp. Phòng tập gym đầy đủ thiết bị cũng là nơi bạn có thể duy trì thói quen luyện tập trong suốt kỳ nghỉ.</p>
     </div>
 </section>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">

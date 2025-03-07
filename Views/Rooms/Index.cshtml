@@ -4,87 +4,118 @@
     ViewData["Title"] = "Danh sách phòng";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 <style>
-    /* Card Styling */
-.card {
-    border-radius: 10px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+    .room-list-container {
+        padding: 30px;
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin-top: 20px;
+    }
 
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
-}
+    .room-list-title {
+        color: #ed3d34;
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
-.card-img-top {
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-}
+        .room-list-title i {
+            margin-right: 10px;
+        }
 
-.card-body {
-    padding: 15px;
-}
+    .room-card {
+        border-radius: 10px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border: none;
+    }
 
-.card-title {
-    font-size: 1.2rem;
-    font-weight: bold;
-}
+        .room-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
+        }
 
-.card-text {
-    font-size: 1rem;
-    margin: 5px 0;
-}
+    .room-card-img {
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        height: 200px;
+        object-fit: cover;
+    }
 
-.btn-sm {
-    font-size: 0.875rem;
-    padding: 5px 10px;
-}
+    .room-card-body {
+        padding: 15px;
+    }
 
-/* Grid System */
-.row {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-}
+    .room-card-title {
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: #197fca;
+    }
 
+    .room-card-text {
+        font-size: 1rem;
+        margin: 5px 0;
+    }
 
-/* Spacing */
-h1 {
-    font-size: 2rem;
-    color: #333;
-    text-align: center;
-}
+        .room-card-text strong {
+            font-weight: bold;
+        }
 
-.card-text strong {
-    font-weight: bold;
-}
+    .room-card-actions {
+        display: flex;
+        justify-content: space-between;
+    }
 
+        .room-card-actions a {
+            font-size: 0.875rem;
+            padding: 5px 10px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .room-card-actions .btn-primary {
+            background-color: #197fca;
+            border: none;
+            color: white;
+        }
+
+        .room-card-actions .btn-success {
+            background-color: #ed3d34;
+            border: none;
+            color: white;
+        }
 </style>
-<h1 class="text-center my-4">Danh sách phòng khách sạn</h1>
 
-<div class="row">
-    @foreach (var item in Model)
-    {
-        <div class="col-md-4 mb-4">
-            <div class="card shadow-sm border-light">
-                <!-- Dynamic image (use real image URL if available) -->
-                <img src="~/images/room.jpg" class="card-img-top" alt="Ảnh phòng" style="height: 200px; object-fit: cover;">
+<div class="container room-list-container">
+    <h1 class="room-list-title">
+        <i class="fas fa-bed"></i> Danh sách phòng khách sạn
+    </h1>
 
-                <div class="card-body">
-                    <h5 class="card-title">@item.RoomType</h5>
-                    <p class="card-text"><strong>Số phòng:</strong> @item.RoomNumber</p>
-                    <p class="card-text"><strong>Giá mỗi đêm:</strong> @item.PricePerNight</p>
-                    <p class="card-text"><strong>Khách sạn:</strong> @item.Hotel.Name</p>
-                    <div class="d-flex justify-content-between">
-                        <a href="@Url.Action("Details", new { id = item.RoomId })" class="btn btn-primary btn-sm">Xem chi tiết</a>
-                        <a asp-action="Create" asp-controller="Bookings" asp-route-roomId="@item.RoomId" asp-route-customerId="@Context.Session.GetInt32("CustomerId")" class="btn btn-success">
-                            Đặt phòng
-                        </a>
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card room-card">
+                    <img src="~/images/room.jpg" class="room-card-img" alt="Ảnh phòng">
+                    <div class="room-card-body">
+                        <h5 class="room-card-title">@item.RoomType</h5>
+                        <p class="room-card-text"><strong>Số phòng:</strong> @item.RoomNumber</p>
+                        <p class="room-card-text"><strong>Giá mỗi đêm:</strong> @item.PricePerNight.ToString("C0", new System.Globalization.CultureInfo("vi-VN"))</p>
+                        <p class="room-card-text"><strong>Khách sạn:</strong> @item.Hotel.Name</p>
+                        <div class="room-card-actions">
+                            <a href="@Url.Action("Details", new { id = item.RoomId })" class="btn btn-primary">Xem chi tiết</a>
+                            <a asp-action="Create" asp-controller="Bookings" asp-route-roomId="@item.RoomId" asp-route-customerId="@Context.Session.GetInt32("CustomerId")" class="btn btn-success">Đặt phòng</a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    }
+        }
+    </div>
 </div>
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">

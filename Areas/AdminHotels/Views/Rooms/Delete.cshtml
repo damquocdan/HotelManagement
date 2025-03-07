@@ -5,90 +5,67 @@
     Layout = "~/Areas/AdminHotels/Views/Shared/Admin.cshtml";
 }
 
-<h1>Xóa Phòng</h1>
+<style>
+    .btn-danger {
+        background-color: #ed3d34;
+        border-color: #ed3d34;
+        color: white;
+    }
 
-<h3>Bạn có chắc chắn muốn xóa phòng này không?</h3>
+        .btn-danger:hover {
+            background-color: #d1342b;
+            border-color: #d1342b;
+        }
 
-<div>
-    <h4>Thông Tin Phòng</h4>
-    <hr />
+    .btn-secondary {
+        background-color: #f0f0f0;
+        border-color: #ddd;
+        color: #333;
+    }
+
+        .btn-secondary:hover {
+            background-color: #e0e0e0;
+        }
+
+    .text-primary {
+        color: #197fca !important;
+    }
+
+    .text-danger {
+        color: #ed3d34 !important;
+    }
+</style>
+
+<div class="container mt-4">
+    <h1 class="text-primary mb-4"><i class="fas fa-trash-alt"></i> Xóa Phòng</h1>
+
+    <div class="alert alert-danger" role="alert">
+        <h3 class="mb-0"><i class="fas fa-exclamation-triangle"></i> Bạn có chắc chắn muốn xóa phòng này không?</h3>
+    </div>
+
+    <h4 class="text-primary mb-3"><i class="fas fa-bed"></i> Thông Tin Phòng</h4>
+    <hr style="border-color: #197fca; margin-bottom: 25px;" />
+
     <dl class="row">
-        <dt class="col-sm-2" style="color: #197fca;">
-            @Html.DisplayNameFor(model => model.RoomNumber)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.RoomNumber)
-        </dd>
-        <dt class="col-sm-2" style="color: #197fca;">
-            @Html.DisplayNameFor(model => model.RoomType)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.RoomType)
-        </dd>
-        <dt class="col-sm-2" style="color: #197fca;">
-            @Html.DisplayNameFor(model => model.PricePerNight)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.PricePerNight)
-        </dd>
-        <dt class="col-sm-2" style="color: #197fca;">
-            @Html.DisplayNameFor(model => model.Status)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Status)
-        </dd>
-        <dt class="col-sm-2" style="color: #197fca;">
-            @Html.DisplayNameFor(model => model.Hotel)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Hotel.Name)
-        </dd>
+        <dt class="col-sm-2 text-primary"><i class="fas fa-hashtag"></i> @Html.DisplayNameFor(model => model.RoomNumber)</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.RoomNumber)</dd>
+        <dt class="col-sm-2 text-primary"><i class="fas fa-th-large"></i> @Html.DisplayNameFor(model => model.RoomType)</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.RoomType)</dd>
+        <dt class="col-sm-2 text-primary"><i class="fas fa-dollar-sign"></i> @Html.DisplayNameFor(model => model.PricePerNight)</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.PricePerNight)</dd>
+        <dt class="col-sm-2 text-primary"><i class="fas fa-check-circle"></i> @Html.DisplayNameFor(model => model.Status)</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.Status)</dd>
+        <dt class="col-sm-2 text-primary"><i class="fas fa-hotel"></i> @Html.DisplayNameFor(model => model.Hotel)</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.Hotel.Name)</dd>
     </dl>
 
-    <form asp-action="Delete">
+    <form asp-action="Delete" class="mt-4">
         <input type="hidden" asp-for="RoomId" />
         <input type="submit" value="Xóa" class="btn btn-danger" />
-        <a asp-action="Index" class="btn btn-secondary">Quay lại danh sách</a>
+        <a asp-action="Index" class="btn btn-secondary ml-2">Quay lại danh sách</a>
     </form>
 </div>
 
-@section Styles {
-    <style>
-        /* Custom colors and styling */
-        h1, h3, h4 {
-            color: #197fca;
-        }
-
-        dt {
-            font-weight: bold;
-        }
-
-        dd {
-            margin-bottom: 15px;
-        }
-
-        .btn-danger {
-            background-color: #ec4e45;
-            border-color: #ec4e45;
-        }
-
-            .btn-danger:hover {
-                background-color: #c23c36;
-                border-color: #c23c36;
-            }
-
-        .btn-secondary {
-            background-color: #6c757d;
-            border-color: #6c757d;
-        }
-
-            .btn-secondary:hover {
-                background-color: #ec4e45;
-                border-color: #ec4e45;
-            }
-
-        .text-danger {
-            color: #ec4e45;
-        }
-    </style>
+@section Scripts {
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 }

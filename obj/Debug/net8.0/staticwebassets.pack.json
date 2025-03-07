@@ -2,7 +2,7 @@
   "Files": [
     {
       "Id": "E:\\DATN\\HotelManagement\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\HotelManagement.bundle.scp.css",
-      "PackagePath": "staticwebassets\\HotelManagement.bundle.scp.css"
+      "PackagePath": "staticwebassets\\HotelManagement.6kzztpxxol.bundle.scp.css"
     },
     {
       "Id": "E:\\DATN\\HotelManagement\\wwwroot\\css\\site.css",
@@ -297,6 +297,18 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "E:\\DATN\\HotelManagement\\wwwroot\\images\\New Tab.html",
+      "PackagePath": "staticwebassets\\images\\New Tab.html"
+    },
+    {
+      "Id": "E:\\DATN\\HotelManagement\\wwwroot\\images\\New Tab_files\\custom_background_image.html",
+      "PackagePath": "staticwebassets\\images\\New Tab_files\\custom_background_image.html"
+    },
+    {
+      "Id": "E:\\DATN\\HotelManagement\\wwwroot\\images\\New Tab_files\\m=_b,_tp",
+      "PackagePath": "staticwebassets\\images\\New Tab_files"
+    },
+    {
       "Id": "E:\\DATN\\HotelManagement\\wwwroot\\images\\customer1.jpg",
       "PackagePath": "staticwebassets\\images\\customer1.jpg"
     },
@@ -587,6 +599,10 @@
     {
       "Id": "E:\\DATN\\HotelManagement\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.HotelManagement.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.HotelManagement.Microsoft.AspNetCore.StaticWebAssets.props",

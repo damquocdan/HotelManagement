@@ -1,66 +1,105 @@
 ﻿@model IEnumerable<HotelManagement.Models.Booking>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Danh sách đặt phòng";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
+<style>
+    .booking-list-container {
+        padding: 30px;
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin-top: 20px;
+    }
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.CheckInDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CheckOutDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TotalPrice)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Status)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Customer)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Room)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.CheckInDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CheckOutDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TotalPrice)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Status)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Customer.CustomerId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Room.RoomId)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.BookingId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.BookingId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.BookingId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+    .booking-list-title {
+        color: #ed3d34;
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+        .booking-list-title i {
+            margin-right: 10px;
+        }
+
+    .booking-table {
+        margin-top: 20px;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+        .booking-table th, .booking-table td {
+            text-align: center;
+            padding: 15px;
+            vertical-align: middle;
+        }
+
+        .booking-table th {
+            font-size: 18px;
+        }
+
+        .booking-table td {
+            font-size: 16px;
+        }
+
+        .booking-table thead {
+            background-color: #197fca;
+            color: white;
+        }
+
+        .booking-table tbody tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .booking-table tbody tr:hover {
+            background-color: #e0e0e0;
+        }
+
+        .booking-table .badge {
+            font-size: 14px;
+            padding: 8px 12px;
+        }
+</style>
+
+<div class="container booking-list-container">
+    <h1 class="booking-list-title">
+        <i class="fas fa-hotel"></i> Danh Sách Đặt Phòng
+    </h1>
+
+    <table class="table table-bordered table-hover booking-table">
+        <thead>
+            <tr>
+                <th><i class="fas fa-calendar-check"></i> Ngày nhận phòng</th>
+                <th><i class="fas fa-calendar-times"></i> Ngày trả phòng</th>
+                <th><i class="fas fa-money-bill-wave"></i> Tổng tiền</th>
+                <th><i class="fas fa-info-circle"></i> Trạng thái</th>
+                <th><i class="fas fa-door-closed"></i> Số phòng</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.CheckInDate)</td>
+                    <td>@Html.DisplayFor(modelItem => item.CheckOutDate)</td>
+                    <td>@Html.DisplayFor(modelItem => item.TotalPrice) VND</td>
+                    <td>
+                        <span class="badge @(item.Status == "Confirmed" ? "bg-success" : "bg-warning")">
+                            @(item.Status == "Confirmed" ? "Đã thanh toán" : "Chưa thanh toán")
+                        </span>
+                    </td>
+                    <td>@Html.DisplayFor(modelItem => item.Room.RoomNumber)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">

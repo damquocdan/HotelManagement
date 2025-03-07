@@ -4,47 +4,94 @@
     ViewData["Title"] = "Tạo mới quản trị viên";
 }
 
-<h1 style="color: #197fca;">Tạo mới quản trị viên</h1>
+<style>
+    .card {
+        border-radius: 10px;
+    }
 
-<h4 style="color: #ec4e45;">Thông tin quản trị viên</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create" style="background-color: #f9f9f9; padding: 20px; border-radius: 8px; border: 1px solid #ddd;">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Name" class="control-label" style="color: #197fca;">Họ và tên</label>
-                <input asp-for="Name" class="form-control" style="border-color: #197fca;" />
-                <span asp-validation-for="Name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Email" class="control-label" style="color: #197fca;">Email</label>
-                <input asp-for="Email" class="form-control" style="border-color: #197fca;" />
-                <span asp-validation-for="Email" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Phone" class="control-label" style="color: #197fca;">Số điện thoại</label>
-                <input asp-for="Phone" class="form-control" style="border-color: #197fca;" />
-                <span asp-validation-for="Phone" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Password" class="control-label" style="color: #197fca;">Mật khẩu</label>
-                <input asp-for="Password" class="form-control" style="border-color: #197fca;" type="password" />
-                <span asp-validation-for="Password" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Tạo mới" class="btn btn-primary" style="background-color: #ec4e45; border-color: #ec4e45;" />
-            </div>
-        </form>
+    .card-header {
+        border-bottom: 2px solid #ddd;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .btn-danger {
+        background-color: #ed3d34;
+        border-color: #ed3d34;
+    }
+
+        .btn-danger:hover {
+            background-color: #d1342b;
+            border-color: #d1342b;
+        }
+
+    .btn-secondary {
+        background-color: #f0f0f0;
+        border-color: #ddd;
+        color: #333;
+    }
+
+        .btn-secondary:hover {
+            background-color: #e0e0e0;
+        }
+
+    .text-primary {
+        color: #197fca !important;
+    }
+
+    .text-danger {
+        color: #ed3d34 !important;
+    }
+
+    .border-primary {
+        border-color: #197fca !important;
+    }
+</style>
+
+<div class="mt-4">
+    <h1 class="text-primary mb-4"><i class="fas fa-user-plus"></i> Tạo mới quản trị viên</h1>
+
+    <div class="card shadow mb-4">
+        <div class="card-header bg-light">
+            <h4 class="text-danger mb-0"><i class="fas fa-info-circle"></i> Thông tin quản trị viên</h4>
+        </div>
+        <div class="card-body">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label text-primary"><i class="fas fa-user"></i> Họ và tên</label>
+                    <input asp-for="Name" class="form-control border-primary" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Email" class="control-label text-primary"><i class="fas fa-envelope"></i> Email</label>
+                    <input asp-for="Email" class="form-control border-primary" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Phone" class="control-label text-primary"><i class="fas fa-phone"></i> Số điện thoại</label>
+                    <input asp-for="Phone" class="form-control border-primary" />
+                    <span asp-validation-for="Phone" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Password" class="control-label text-primary"><i class="fas fa-lock"></i> Mật khẩu</label>
+                    <input asp-for="Password" class="form-control border-primary" type="password" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <div class="form-group mt-4">
+                    <input type="submit" value="Tạo mới" class="btn btn-danger" />
+                    <a asp-action="Index" class="btn btn-secondary ml-2">Quay lại danh sách</a>
+                </div>
+            </form>
+        </div>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index" style="color: #ec4e45;">Quay lại danh sách</a>
 </div>
 
 @section Scripts {
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 }

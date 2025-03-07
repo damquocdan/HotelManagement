@@ -5,64 +5,110 @@
     Layout = "~/Areas/AdminHotels/Views/Shared/Admin.cshtml";
 }
 
-<h1 style="color: #197fca;">Danh Sách Nhân Viên</h1>
+<style>
+    .btn-primary {
+        background-color: #197fca;
+        border-color: #197fca;
+    }
 
-<p>
-    <a asp-action="Create" style="color: #197fca;">Tạo Mới</a>
-</p>
-
-<table class="table" style="border: 1px solid #ec4e45;">
-    <thead style="background-color: #197fca; color: white;">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Position)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Phone)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Email)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Salary)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Hotel)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Position)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Phone)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Email)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Salary)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Hotel.Name)
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.StaffId" style="color: #197fca;">Sửa</a> 
-                    <a asp-action="Details" asp-route-id="@item.StaffId" style="color: #197fca;">Chi Tiết</a> 
-                    <a asp-action="Delete" asp-route-id="@item.StaffId" style="color: #ec4e45;">Xóa</a>
-                </td>
-            </tr>
+        .btn-primary:hover {
+            background-color: #1565c0;
+            border-color: #1565c0;
         }
-    </tbody>
-</table>
+
+    .btn-warning {
+        background-color: #ed3d34;
+        border-color: #ed3d34;
+        color: white;
+    }
+
+        .btn-warning:hover {
+            background-color: #d1342b;
+            border-color: #d1342b;
+        }
+
+    .btn-info {
+        background-color: #197fca;
+        border-color: #197fca;
+        color: white;
+    }
+
+        .btn-info:hover {
+            background-color: #1565c0;
+            border-color: #1565c0;
+        }
+
+    .btn-danger {
+        background-color: #ed3d34;
+        border-color: #ed3d34;
+        color: white;
+    }
+
+        .btn-danger:hover {
+            background-color: #d1342b;
+            border-color: #d1342b;
+        }
+
+    .text-primary {
+        color: #197fca !important;
+    }
+
+    .text-danger {
+        color: #ed3d34 !important;
+    }
+
+    .table thead th {
+        background-color: #197fca;
+        color: white;
+    }
+
+    .table-striped tbody tr:nth-of-type(odd) {
+        background-color: rgba(0, 0, 0, 0.05);
+    }
+</style>
+
+<div class="  mt-4">
+    <h1 class="text-primary mb-4"><i class="fas fa-users"></i> Danh Sách Nhân Viên</h1>
+
+    <p>
+        <a asp-action="Create" class="btn btn-primary"><i class="fas fa-plus"></i> Tạo Mới</a>
+    </p>
+
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th><i class="fas fa-signature"></i> @Html.DisplayNameFor(model => model.Name)</th>
+                    <th><i class="fas fa-briefcase"></i> @Html.DisplayNameFor(model => model.Position)</th>
+                    <th><i class="fas fa-phone"></i> @Html.DisplayNameFor(model => model.Phone)</th>
+                    <th><i class="fas fa-envelope"></i> @Html.DisplayNameFor(model => model.Email)</th>
+                    <th><i class="fas fa-dollar-sign"></i> @Html.DisplayNameFor(model => model.Salary)</th>
+                    <th><i class="fas fa-hotel"></i> @Html.DisplayNameFor(model => model.Hotel)</th>
+                    <th><i class="fas fa-cogs"></i> Hành Động</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Position)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Phone)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Email)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Salary)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Hotel.Name)</td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.StaffId" class="btn btn-sm btn-warning"><i class="fas fa-edit"></i> Sửa</a>
+                            <a asp-action="Details" asp-route-id="@item.StaffId" class="btn btn-sm btn-info"><i class="fas fa-info-circle"></i> Chi Tiết</a>
+                            <a asp-action="Delete" asp-route-id="@item.StaffId" class="btn btn-sm btn-danger"><i class="fas fa-trash-alt"></i> Xóa</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@section Scripts {
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+}

@@ -4,7 +4,36 @@
     ViewData["Title"] = "Danh Sách Đặt Phòng";
     Layout = "~/Areas/AdminHotels/Views/Shared/Admin.cshtml";
 }
+
 <style>
+    .btn-danger {
+        background-color: #ed3d34;
+        border-color: #ed3d34;
+        color: white;
+    }
+
+        .btn-danger:hover {
+            background-color: #d1342b;
+            border-color: #d1342b;
+        }
+
+    .text-primary {
+        color: #197fca !important;
+    }
+
+    .text-danger {
+        color: #ed3d34 !important;
+    }
+
+    .table thead th {
+        background-color: #197fca;
+        color: white;
+    }
+
+    .table-striped tbody tr:nth-of-type(odd) {
+        background-color: rgba(0, 0, 0, 0.05);
+    }
+
     form select.form-select-sm {
         width: 100%;
         padding: 5px;
@@ -12,65 +41,52 @@
         border: 1px solid #ccc;
     }
 </style>
-<h1 style="color: #197fca;">Danh Sách Đặt Phòng</h1>
 
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th style="color: #197fca;">
-                @Html.DisplayNameFor(model => model.CheckInDate)
-            </th>
-            <th style="color: #197fca;">
-                @Html.DisplayNameFor(model => model.CheckOutDate)
-            </th>
-            <th style="color: #197fca;">
-                @Html.DisplayNameFor(model => model.TotalPrice)
-            </th>
-            <th style="color: #197fca;">
-                @Html.DisplayNameFor(model => model.Status)
-            </th>
-            <th style="color: #197fca;">
-                @Html.DisplayNameFor(model => model.Customer)
-            </th>
-            <th style="color: #197fca;">
-                @Html.DisplayNameFor(model => model.Room)
-            </th>
-            <th style="color: #197fca;"></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.CheckInDate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.CheckOutDate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TotalPrice)
-                </td>
-                <td>
-                    <form asp-action="UpdateStatus" method="post" style="display: inline;">
-                        <input type="hidden" name="id" value="@item.BookingId" />
-                        <select name="status" class="form-select form-select-sm" onchange="this.form.submit()">
-                            <option value="Confirmed" selected="@(item.Status == "Confirmed")">Thanh toán thành công</option>
-                            <option value="Pending" selected="@(item.Status == "Pending")">Chưa thanh toán</option>
-                            <option value="Cancelled" selected="@(item.Status == "Cancelled")">Huỷ đặt phòng</option>
-                        </select>
-                    </form>
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Customer.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Room.RoomNumber)
-                </td>
-                <td>
-                    <a asp-action="Delete" asp-route-id="@item.BookingId" style="color: #ec4e45;">Xóa</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+<div class="container mt-4">
+    <h1 class="text-primary mb-4"><i class="fas fa-calendar-check"></i> Danh Sách Đặt Phòng</h1>
+
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th><i class="fas fa-calendar-day"></i> @Html.DisplayNameFor(model => model.CheckInDate)</th>
+                    <th><i class="fas fa-calendar-day"></i> @Html.DisplayNameFor(model => model.CheckOutDate)</th>
+                    <th><i class="fas fa-dollar-sign"></i> @Html.DisplayNameFor(model => model.TotalPrice)</th>
+                    <th><i class="fas fa-tasks"></i> @Html.DisplayNameFor(model => model.Status)</th>
+                    <th><i class="fas fa-user"></i> @Html.DisplayNameFor(model => model.Customer)</th>
+                    <th><i class="fas fa-bed"></i> @Html.DisplayNameFor(model => model.Room)</th>
+                    <th><i class="fas fa-cogs"></i> Hành Động</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.CheckInDate)</td>
+                        <td>@Html.DisplayFor(modelItem => item.CheckOutDate)</td>
+                        <td>@Html.DisplayFor(modelItem => item.TotalPrice)</td>
+                        <td>
+                            <form asp-action="UpdateStatus" method="post" style="display: inline;">
+                                <input type="hidden" name="id" value="@item.BookingId" />
+                                <select name="status" class="form-select form-select-sm" onchange="this.form.submit()">
+                                    <option value="Confirmed" selected="@(item.Status == "Confirmed")">Thanh toán thành công</option>
+                                    <option value="Pending" selected="@(item.Status == "Pending")">Chưa thanh toán</option>
+                                    <option value="Cancelled" selected="@(item.Status == "Cancelled")">Huỷ đặt phòng</option>
+                                </select>
+                            </form>
+                        </td>
+                        <td>@Html.DisplayFor(modelItem => item.Customer.Name)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Room.RoomNumber)</td>
+                        <td>
+                            <a asp-action="Delete" asp-route-id="@item.BookingId" class="btn btn-sm btn-danger"><i class="fas fa-trash-alt"></i> Xóa</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@section Scripts {
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+}

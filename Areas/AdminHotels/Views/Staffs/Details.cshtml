@@ -1,62 +1,74 @@
 ﻿@model HotelManagement.Models.Staff
 
 @{
-    ViewData["Title"] = "Chi Tiết";
+    ViewData["Title"] = "Chi Tiết Nhân Viên";
     Layout = "~/Areas/AdminHotels/Views/Shared/Admin.cshtml";
 }
 
-<h1 style="color: #197fca;">Chi Tiết Nhân Viên</h1>
+<style>
+    .btn-primary {
+        background-color: #197fca;
+        border-color: #197fca;
+        color: white;
+    }
 
-<div>
-    <h4 style="color: #197fca;">Thông Tin Nhân Viên</h4>
-    <hr />
+        .btn-primary:hover {
+            background-color: #1565c0;
+            border-color: #1565c0;
+        }
+
+    .btn-secondary {
+        background-color: #ed3d34;
+        border-color: #ed3d34;
+        color: white;
+    }
+
+        .btn-secondary:hover {
+            background-color: #d1342b;
+            border-color: #d1342b;
+        }
+
+    .text-primary {
+        color: #197fca !important;
+    }
+
+    .text-danger {
+        color: #ed3d34 !important;
+    }
+</style>
+
+<div class="container mt-4">
+    <h1 class="text-primary mb-4"><i class="fas fa-user-circle"></i> Chi Tiết Nhân Viên</h1>
+
+    <h4 class="text-primary mb-3"><i class="fas fa-id-card"></i> Thông Tin Nhân Viên</h4>
+    <hr style="border-color: #197fca; margin-bottom: 25px;" />
+
     <dl class="row">
-        <dt class="col-sm-2" style="color: #197fca;">
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+        <dt class="col-sm-2 text-primary"><i class="fas fa-signature"></i> @Html.DisplayNameFor(model => model.Name)</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.Name)</dd>
 
-        <dt class="col-sm-2" style="color: #197fca;">
-            @Html.DisplayNameFor(model => model.Position)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Position)
-        </dd>
+        <dt class="col-sm-2 text-primary"><i class="fas fa-briefcase"></i> @Html.DisplayNameFor(model => model.Position)</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.Position)</dd>
 
-        <dt class="col-sm-2" style="color: #197fca;">
-            @Html.DisplayNameFor(model => model.Phone)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Phone)
-        </dd>
+        <dt class="col-sm-2 text-primary"><i class="fas fa-phone"></i> @Html.DisplayNameFor(model => model.Phone)</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.Phone)</dd>
 
-        <dt class="col-sm-2" style="color: #197fca;">
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Email)
-        </dd>
+        <dt class="col-sm-2 text-primary"><i class="fas fa-envelope"></i> @Html.DisplayNameFor(model => model.Email)</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.Email)</dd>
 
-        <dt class="col-sm-2" style="color: #197fca;">
-            @Html.DisplayNameFor(model => model.Salary)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Salary)
-        </dd>
+        <dt class="col-sm-2 text-primary"><i class="fas fa-dollar-sign"></i> @Html.DisplayNameFor(model => model.Salary)</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.Salary)</dd>
 
-        <dt class="col-sm-2" style="color: #197fca;">
-            @Html.DisplayNameFor(model => model.Hotel)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Hotel.HotelId)
-        </dd>
+        <dt class="col-sm-2 text-primary"><i class="fas fa-hotel"></i> @Html.DisplayNameFor(model => model.Hotel)</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.Hotel.HotelId)</dd>
     </dl>
+
+    <div class="mt-4">
+        <a asp-action="Edit" asp-route-id="@Model?.StaffId" class="btn btn-primary"><i class="fas fa-edit"></i> Chỉnh Sửa</a>
+        <a asp-action="Index" class="btn btn-secondary ml-2"><i class="fas fa-arrow-left"></i> Quay lại danh sách</a>
+    </div>
 </div>
 
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.StaffId" style="color: #197fca;">Sửa</a> 
-    <a asp-action="Index" style="color: #197fca;">Quay lại danh sách</a>
-</div>
-
+@section Scripts {
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+}

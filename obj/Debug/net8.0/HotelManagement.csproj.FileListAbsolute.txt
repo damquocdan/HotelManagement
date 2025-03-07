@@ -47,7 +47,6 @@ E:\DATN\HotelManagement\bin\Debug\net8.0\System.Composition.Runtime.dll
 E:\DATN\HotelManagement\bin\Debug\net8.0\System.Composition.TypedParts.dll
 E:\DATN\HotelManagement\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
 E:\DATN\HotelManagement\bin\Debug\net8.0\System.Drawing.Common.dll
-E:\DATN\HotelManagement\bin\Debug\net8.0\System.Formats.Asn1.dll
 E:\DATN\HotelManagement\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
 E:\DATN\HotelManagement\bin\Debug\net8.0\System.Memory.Data.dll
 E:\DATN\HotelManagement\bin\Debug\net8.0\System.Runtime.Caching.dll
@@ -131,7 +130,6 @@ E:\DATN\HotelManagement\obj\Debug\net8.0\staticwebassets.pack.json
 E:\DATN\HotelManagement\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 E:\DATN\HotelManagement\obj\Debug\net8.0\scopedcss\bundle\HotelManagement.styles.css
 E:\DATN\HotelManagement\obj\Debug\net8.0\scopedcss\projectbundle\HotelManagement.bundle.scp.css
-E:\DATN\HotelManagement\obj\Debug\net8.0\HotelManagement.csproj.CopyComplete
 E:\DATN\HotelManagement\obj\Debug\net8.0\HotelManagement.dll
 E:\DATN\HotelManagement\obj\Debug\net8.0\refint\HotelManagement.dll
 E:\DATN\HotelManagement\obj\Debug\net8.0\HotelManagement.pdb
@@ -268,3 +266,8 @@ E:\DATN\HotelManagement\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Drawing.
 E:\DATN\HotelManagement\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Security.Cryptography.ProtectedData.dll
 E:\DATN\HotelManagement\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Windows.Extensions.dll
 E:\DATN\HotelManagement\obj\Debug\net8.0\HotelManagement.sourcelink.json
+E:\DATN\HotelManagement\bin\Debug\net8.0\HotelManagement.staticwebassets.endpoints.json
+E:\DATN\HotelManagement\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+E:\DATN\HotelManagement\obj\Debug\net8.0\staticwebassets\msbuild.HotelManagement.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+E:\DATN\HotelManagement\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+E:\DATN\HotelManagement\obj\Debug\net8.0\HotelMan.EA22BE7D.Up2Date

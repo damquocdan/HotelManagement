@@ -5,89 +5,93 @@
     Layout = "~/Areas/AdminHotels/Views/Shared/Admin.cshtml";
 }
 
-<h1>Tạo Phòng</h1>
+<style>
+    .form-group {
+        margin-bottom: 20px;
+    }
 
-<h4>Thông Tin Phòng</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="HotelId" class="control-label" style="color: #197fca;"></label>
-                <select asp-for="HotelId" class="form-control" asp-items="ViewBag.HotelId">
-                    <option value="">Chọn Khách Sạn</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label asp-for="RoomNumber" class="control-label" style="color: #197fca;"></label>
-                <input asp-for="RoomNumber" class="form-control" />
-                <span asp-validation-for="RoomNumber" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="RoomType" class="control-label" style="color: #197fca;"></label>
-                <input asp-for="RoomType" class="form-control" />
-                <span asp-validation-for="RoomType" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PricePerNight" class="control-label" style="color: #197fca;"></label>
-                <input asp-for="PricePerNight" class="form-control" />
-                <span asp-validation-for="PricePerNight" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Status" class="control-label" style="color: #197fca;"></label>
-                <input asp-for="Status" value="Available" class="form-control" readonly/>
-                <span asp-validation-for="Status" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Tạo" class="btn btn-primary" style="background-color: #197fca; border-color: #197fca;" />
-            </div>
-        </form>
+    .btn-primary {
+        background-color: #197fca;
+        border-color: #197fca;
+        color: white;
+    }
+
+        .btn-primary:hover {
+            background-color: #1565c0;
+            border-color: #1565c0;
+        }
+
+    .btn-secondary {
+        background-color: #ed3d34;
+        border-color: #ed3d34;
+        color: white;
+    }
+
+        .btn-secondary:hover {
+            background-color: #d1342b;
+            border-color: #d1342b;
+        }
+
+    .text-primary {
+        color: #197fca !important;
+    }
+
+    .text-danger {
+        color: #ed3d34 !important;
+    }
+</style>
+
+<div class="container mt-4">
+    <h1 class="text-primary mb-4"><i class="fas fa-plus-circle"></i> Tạo Phòng</h1>
+
+    <h4 class="text-primary mb-3"><i class="fas fa-bed"></i> Thông Tin Phòng</h4>
+    <hr style="border-color: #197fca; margin-bottom: 25px;" />
+
+    <div class="row">
+        <div class="col-md-6">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="HotelId" class="control-label text-primary"><i class="fas fa-hotel"></i> Khách Sạn</label>
+                    <select asp-for="HotelId" class="form-control" asp-items="ViewBag.HotelId">
+                        <option value="">Chọn Khách Sạn</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="RoomNumber" class="control-label text-primary"><i class="fas fa-hashtag"></i> Số Phòng</label>
+                    <input asp-for="RoomNumber" class="form-control" />
+                    <span asp-validation-for="RoomNumber" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="RoomType" class="control-label text-primary"><i class="fas fa-th-large"></i> Loại Phòng</label>
+                    <input asp-for="RoomType" class="form-control" />
+                    <span asp-validation-for="RoomType" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PricePerNight" class="control-label text-primary"><i class="fas fa-dollar-sign"></i> Giá/Đêm</label>
+                    <input asp-for="PricePerNight" class="form-control" />
+                    <span asp-validation-for="PricePerNight" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Status" class="control-label text-primary"><i class="fas fa-check-circle"></i> Trạng Thái</label>
+                    <input asp-for="Status" value="Available" class="form-control" readonly />
+                    <span asp-validation-for="Status" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Tạo" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
     </div>
-</div>
 
-<div>
-    <a asp-action="Index" class="btn btn-secondary" style="background-color: #ec4e45; border-color: #ec4e45; color: white;">Quay lại danh sách</a>
+    <div class="mt-4">
+        <a asp-action="Index" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Quay lại danh sách</a>
+    </div>
 </div>
 
 @section Scripts {
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 }
-
-    <style>
-        /* Custom colors and styling */
-        h1, h4 {
-            color: #197fca;
-        }
-
-        label {
-            font-weight: bold;
-            color: #197fca;
-        }
-
-        .btn-primary {
-            background-color: #197fca;
-            border-color: #197fca;
-        }
-
-            .btn-primary:hover {
-                background-color: #155a8a;
-                border-color: #155a8a;
-            }
-
-        .btn-secondary {
-            background-color: #ec4e45;
-            border-color: #ec4e45;
-        }
-
-            .btn-secondary:hover {
-                background-color: #c23c36;
-                border-color: #c23c36;
-            }
-
-        .text-danger {
-            color: #ec4e45;
-        }
-    </style>

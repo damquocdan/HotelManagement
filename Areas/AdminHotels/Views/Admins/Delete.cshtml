@@ -4,48 +4,82 @@
     ViewData["Title"] = "Xóa quản trị viên";
 }
 
-<h1 style="color: #197fca;">Xóa quản trị viên</h1>
+<style>
+    .card {
+        border-radius: 10px;
+    }
 
-<h3 style="color: #ec4e45;">Bạn có chắc chắn muốn xóa không?</h3>
-<div>
-    <h4 style="color: #ec4e45;">Thông tin quản trị viên</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2" style="color: #197fca;">
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-        <dt class="col-sm-2" style="color: #197fca;">
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-        <dt class="col-sm-2" style="color: #197fca;">
-            @Html.DisplayNameFor(model => model.Phone)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Phone)
-        </dd>
-        <dt class="col-sm-2" style="color: #197fca;">
-            @Html.DisplayNameFor(model => model.Password)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Password)
-        </dd>
-        <dt class="col-sm-2" style="color: #197fca;">
-            @Html.DisplayNameFor(model => model.Role)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Role)
-        </dd>
-    </dl>
+    .card-header {
+        border-bottom: 2px solid #ddd;
+    }
 
-    <form asp-action="Delete" style="margin-top: 20px;">
-        <input type="hidden" asp-for="AdminId" />
-        <input type="submit" value="Xóa" class="btn btn-danger" style="background-color: #ec4e45; border-color: #ec4e45;" /> 
-        <a asp-action="Index" style="color: #197fca;">Quay lại danh sách</a>
-    </form>
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .btn-danger {
+        background-color: #ed3d34;
+        border-color: #ed3d34;
+    }
+
+        .btn-danger:hover {
+            background-color: #d1342b;
+            border-color: #d1342b;
+        }
+
+    .btn-secondary {
+        background-color: #f0f0f0;
+        border-color: #ddd;
+        color: #333;
+    }
+
+        .btn-secondary:hover {
+            background-color: #e0e0e0;
+        }
+
+    .text-primary {
+        color: #197fca !important;
+    }
+
+    .text-danger {
+        color: #ed3d34 !important;
+    }
+</style>
+
+<div class="mt-4">
+    <h1 class="text-primary mb-4"><i class="fas fa-user-minus"></i> Xóa quản trị viên</h1>
+
+    <div class="alert alert-danger" role="alert">
+        <h3 class="mb-0"><i class="fas fa-exclamation-triangle"></i> Bạn có chắc chắn muốn xóa không?</h3>
+    </div>
+
+    <div class="card shadow mb-4">
+        <div class="card-header bg-light">
+            <h4 class="text-danger mb-0"><i class="fas fa-info-circle"></i> Thông tin quản trị viên</h4>
+        </div>
+        <div class="card-body">
+            <dl class="row">
+                <dt class="col-sm-2 text-primary"><i class="fas fa-user"></i> @Html.DisplayNameFor(model => model.Name)</dt>
+                <dd class="col-sm-10">@Html.DisplayFor(model => model.Name)</dd>
+                <dt class="col-sm-2 text-primary"><i class="fas fa-envelope"></i> @Html.DisplayNameFor(model => model.Email)</dt>
+                <dd class="col-sm-10">@Html.DisplayFor(model => model.Email)</dd>
+                <dt class="col-sm-2 text-primary"><i class="fas fa-phone"></i> @Html.DisplayNameFor(model => model.Phone)</dt>
+                <dd class="col-sm-10">@Html.DisplayFor(model => model.Phone)</dd>
+                <dt class="col-sm-2 text-primary"><i class="fas fa-lock"></i> @Html.DisplayNameFor(model => model.Password)</dt>
+                <dd class="col-sm-10">@Html.DisplayFor(model => model.Password)</dd>
+                <dt class="col-sm-2 text-primary"><i class="fas fa-user-tag"></i> @Html.DisplayNameFor(model => model.Role)</dt>
+                <dd class="col-sm-10">@Html.DisplayFor(model => model.Role)</dd>
+            </dl>
+
+            <form asp-action="Delete" class="mt-4">
+                <input type="hidden" asp-for="AdminId" />
+                <input type="submit" value="Xóa" class="btn btn-danger" />
+                <a asp-action="Index" class="btn btn-secondary ml-2">Quay lại danh sách</a>
+            </form>
+        </div>
+    </div>
 </div>
+
+@section Scripts {
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+}

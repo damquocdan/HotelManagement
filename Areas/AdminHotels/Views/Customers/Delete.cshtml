@@ -5,67 +5,78 @@
     Layout = "~/Areas/AdminHotels/Views/Shared/Admin.cshtml";
 }
 
-<h1 style="color: #197fca;">Xóa Khách Hàng</h1>
+<style>
+    .btn-danger {
+        background-color: #ed3d34;
+        border-color: #ed3d34;
+        color: white;
+    }
 
-<h3 style="color: #ec4e45;">Bạn có chắc chắn muốn xóa khách hàng này không?</h3>
+        .btn-danger:hover {
+            background-color: #d1342b;
+            border-color: #d1342b;
+        }
 
-<div>
-    <h4 style="color: #197fca;">Thông Tin Khách Hàng</h4>
-    <hr />
+    .btn-secondary {
+        background-color: #197fca;
+        border-color: #197fca;
+        color: white;
+    }
+
+        .btn-secondary:hover {
+            background-color: #1565c0;
+            border-color: #1565c0;
+        }
+
+    .text-primary {
+        color: #197fca !important;
+    }
+
+    .text-danger {
+        color: #ed3d34 !important;
+    }
+</style>
+
+<div class="container mt-4">
+    <h1 class="text-primary mb-4"><i class="fas fa-trash-alt"></i> Xóa Khách Hàng</h1>
+
+    <div class="alert alert-danger" role="alert">
+        <h3 class="mb-0"><i class="fas fa-exclamation-triangle"></i> Bạn có chắc chắn muốn xóa khách hàng này không?</h3>
+    </div>
+
+    <h4 class="text-primary mb-3"><i class="fas fa-user"></i> Thông Tin Khách Hàng</h4>
+    <hr style="border-color: #197fca; margin-bottom: 25px;" />
+
     <dl class="row">
-        <dt class="col-sm-2" style="color: #197fca;">
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+        <dt class="col-sm-2 text-primary"><i class="fas fa-signature"></i> @Html.DisplayNameFor(model => model.Name)</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.Name)</dd>
 
-        <dt class="col-sm-2" style="color: #197fca;">
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Email)
-        </dd>
+        <dt class="col-sm-2 text-primary"><i class="fas fa-envelope"></i> @Html.DisplayNameFor(model => model.Email)</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.Email)</dd>
 
-        <dt class="col-sm-2" style="color: #197fca;">
-            @Html.DisplayNameFor(model => model.Phone)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Phone)
-        </dd>
+        <dt class="col-sm-2 text-primary"><i class="fas fa-phone"></i> @Html.DisplayNameFor(model => model.Phone)</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.Phone)</dd>
 
-        <dt class="col-sm-2" style="color: #197fca;">
-            @Html.DisplayNameFor(model => model.Gender)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Gender)
-        </dd>
+        <dt class="col-sm-2 text-primary"><i class="fas fa-venus-mars"></i> @Html.DisplayNameFor(model => model.Gender)</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.Gender)</dd>
 
-        <dt class="col-sm-2" style="color: #197fca;">
-            @Html.DisplayNameFor(model => model.DateOfBirth)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.DateOfBirth)
-        </dd>
+        <dt class="col-sm-2 text-primary"><i class="fas fa-calendar-alt"></i> @Html.DisplayNameFor(model => model.DateOfBirth)</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.DateOfBirth)</dd>
 
-        <dt class="col-sm-2" style="color: #197fca;">
-            @Html.DisplayNameFor(model => model.Address)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Address)
-        </dd>
+        <dt class="col-sm-2 text-primary"><i class="fas fa-map-marker-alt"></i> @Html.DisplayNameFor(model => model.Address)</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.Address)</dd>
 
-        <dt class="col-sm-2" style="color: #197fca;">
-            @Html.DisplayNameFor(model => model.Password)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Password)
-        </dd>
+        <dt class="col-sm-2 text-primary"><i class="fas fa-lock"></i> @Html.DisplayNameFor(model => model.Password)</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.Password)</dd>
     </dl>
 
-    <form asp-action="Delete">
+    <form asp-action="Delete" class="mt-4">
         <input type="hidden" asp-for="CustomerId" />
-        <input type="submit" value="Xóa" class="btn btn-danger" /> 
-        <a asp-action="Index" style="color: #197fca;">Quay Lại Danh Sách</a>
+        <input type="submit" value="Xóa" class="btn btn-danger" />
+        <a asp-action="Index" class="btn btn-secondary ml-2"><i class="fas fa-arrow-left"></i> Quay Lại Danh Sách</a>
     </form>
 </div>
+
+@section Scripts {
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+}

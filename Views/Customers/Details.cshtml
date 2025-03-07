@@ -1,61 +1,114 @@
 ﻿@model HotelManagement.Models.Customer
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Chi tiết khách hàng";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Details</h1>
+<style>
+    .detail-container {
+        padding: 30px;
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin-top: 20px;
+    }
 
-<div>
-    <h4>Customer</h4>
+    .detail-title {
+        color: #ed3d34;
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+    }
+
+        .detail-title i {
+            margin-right: 10px;
+        }
+
+    .detail-row dt {
+        font-weight: bold;
+        color: #197fca;
+        margin-bottom: 5px;
+    }
+
+    .detail-row dd {
+        margin-bottom: 15px;
+    }
+
+    .detail-actions {
+        margin-top: 30px;
+    }
+
+        .detail-actions a {
+            margin-right: 10px;
+        }
+</style>
+
+<div class="container detail-container">
+    <h2 class="detail-title">
+        <i class="fas fa-user"></i> Chi tiết khách hàng
+    </h2>
+
     <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Name)
+
+    <dl class="row detail-row">
+        <dt class="col-sm-2">
+            <i class="fas fa-signature"></i> @Html.DisplayNameFor(model => model.Name)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Name)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Email)
+
+        <dt class="col-sm-2">
+            <i class="fas fa-envelope"></i> @Html.DisplayNameFor(model => model.Email)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Email)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Phone)
+
+        <dt class="col-sm-2">
+            <i class="fas fa-phone"></i> @Html.DisplayNameFor(model => model.Phone)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Phone)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Gender)
+
+        <dt class="col-sm-2">
+            <i class="fas fa-venus-mars"></i> @Html.DisplayNameFor(model => model.Gender)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Gender)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DateOfBirth)
+
+        <dt class="col-sm-2">
+            <i class="fas fa-calendar-alt"></i> @Html.DisplayNameFor(model => model.DateOfBirth)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.DateOfBirth)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Address)
+
+        <dt class="col-sm-2">
+            <i class="fas fa-map-marker-alt"></i> @Html.DisplayNameFor(model => model.Address)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Address)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Password)
+
+        <dt class="col-sm-2">
+            <i class="fas fa-lock"></i> @Html.DisplayNameFor(model => model.Password)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Password)
         </dd>
     </dl>
+
+    <div class="detail-actions">
+        <a asp-action="Edit" asp-route-id="@Model?.CustomerId" class="btn btn-primary">
+            <i class="fas fa-edit"></i> Chỉnh sửa
+        </a>
+    </div>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.CustomerId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">

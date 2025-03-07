@@ -5,71 +5,100 @@
     Layout = "~/Areas/AdminHotels/Views/Shared/Admin.cshtml";
 }
 
-<h1 style="color: #197fca;">Chỉnh Sửa Khách Sạn</h1>
+<style>
+    .form-group {
+        margin-bottom: 20px;
+    }
 
-<h4 style="color: #197fca;">Thông Tin Khách Sạn</h4>
-<hr />
-<div class="row">
-    <div class="col-md-6">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="HotelId" />
+    .btn-primary {
+        background-color: #197fca;
+        border-color: #197fca;
+        color: white;
+    }
 
-            <div class="form-group">
-                <label asp-for="Name" class="control-label" style="color: #197fca;"></label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
-            </div>
+        .btn-primary:hover {
+            background-color: #1565c0;
+            border-color: #1565c0;
+        }
 
-            <div class="form-group">
-                <label asp-for="Address" class="control-label" style="color: #197fca;"></label>
-                <input asp-for="Address" class="form-control" />
-                <span asp-validation-for="Address" class="text-danger"></span>
-            </div>
+    .text-primary {
+        color: #197fca !important;
+    }
 
-            <div class="form-group">
-                <label asp-for="City" class="control-label" style="color: #197fca;"></label>
-                <input asp-for="City" class="form-control" />
-                <span asp-validation-for="City" class="text-danger"></span>
-            </div>
+    .text-danger {
+        color: #ed3d34 !important;
+    }
+</style>
 
-            <div class="form-group">
-                <label asp-for="Phone" class="control-label" style="color: #197fca;"></label>
-                <input asp-for="Phone" class="form-control" />
-                <span asp-validation-for="Phone" class="text-danger"></span>
-            </div>
+<div class="container mt-4">
+    <h1 class="text-primary mb-4"><i class="fas fa-edit"></i> Chỉnh Sửa Khách Sạn</h1>
 
-            <div class="form-group">
-                <label asp-for="Email" class="control-label" style="color: #197fca;"></label>
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
-            </div>
+    <h4 class="text-primary mb-3"><i class="fas fa-hotel"></i> Thông Tin Khách Sạn</h4>
+    <hr style="border-color: #197fca; margin-bottom: 25px;" />
 
-            <div class="form-group">
-                <label asp-for="Rating" class="control-label" style="color: #197fca;"></label>
-                <input asp-for="Rating" class="form-control" />
-                <span asp-validation-for="Rating" class="text-danger"></span>
-            </div>
+    <div class="row">
+        <div class="col-md-6">
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="HotelId" />
 
-            <div class="form-group">
-                <label asp-for="Password" class="control-label" style="color: #197fca;"></label>
-                <input asp-for="Password" class="form-control" />
-                <span asp-validation-for="Password" class="text-danger"></span>
-            </div>
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label text-primary"><i class="fas fa-signature"></i> Tên Khách Sạn</label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
 
-            <div class="form-group">
-                <input type="submit" value="Lưu" class="btn" style="background-color: #197fca; color: white;" />
-            </div>
-        </form>
+                <div class="form-group">
+                    <label asp-for="Address" class="control-label text-primary"><i class="fas fa-map-marker-alt"></i> Địa Chỉ</label>
+                    <input asp-for="Address" class="form-control" />
+                    <span asp-validation-for="Address" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="City" class="control-label text-primary"><i class="fas fa-city"></i> Thành Phố</label>
+                    <input asp-for="City" class="form-control" />
+                    <span asp-validation-for="City" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Phone" class="control-label text-primary"><i class="fas fa-phone"></i> Số Điện Thoại</label>
+                    <input asp-for="Phone" class="form-control" />
+                    <span asp-validation-for="Phone" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Email" class="control-label text-primary"><i class="fas fa-envelope"></i> Email</label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Rating" class="control-label text-primary"><i class="fas fa-star"></i> Đánh Giá</label>
+                    <input asp-for="Rating" class="form-control" />
+                    <span asp-validation-for="Rating" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Password" class="control-label text-primary"><i class="fas fa-lock"></i> Mật Khẩu</label>
+                    <input asp-for="Password" class="form-control" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Lưu" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
     </div>
-</div>
 
-<div>
-    <a asp-action="Index" style="color: #197fca;">Quay Lại Danh Sách</a>
+    <div class="mt-4">
+        <a asp-action="Index" class="text-primary"><i class="fas fa-arrow-left"></i> Quay Lại Danh Sách</a>
+    </div>
 </div>
 
 @section Scripts {
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 }

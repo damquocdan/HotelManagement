@@ -1,49 +1,128 @@
 ﻿@model HotelManagement.Models.Room
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Chi tiết phòng";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Details</h1>
+<style>
+    .room-detail-container {
+        padding: 30px;
+        background-color: #f8f9fa;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin-top: 20px;
+    }
 
-<div>
-    <h4>Room</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.RoomNumber)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.RoomNumber)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.RoomType)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.RoomType)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PricePerNight)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PricePerNight)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Status)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Status)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Hotel)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Hotel.HotelId)
-        </dd>
-    </dl>
+    .room-detail-title {
+        color: #ed3d34;
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+        .room-detail-title i {
+            margin-right: 10px;
+        }
+
+    .room-card {
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+    }
+
+    .room-info-title {
+        color: #197fca;
+        font-size: 1.8rem;
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+    }
+
+        .room-info-title i {
+            margin-right: 10px;
+        }
+
+    .room-detail-row dt {
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    .room-detail-row dd {
+        font-size: 16px;
+        margin-bottom: 15px;
+    }
+
+    .room-detail-actions {
+        margin-top: 30px;
+        text-align: left;
+    }
+
+        .room-detail-actions a {
+            background-color: #197fca;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.1rem;
+            text-decoration: none;
+            color: white;
+            border-radius: 5px;
+        }
+
+            .room-detail-actions a:hover {
+                background-color: #1569b1;
+            }
+</style>
+
+<div class="container room-detail-container">
+    <h1 class="room-detail-title">
+        <i class="fas fa-bed"></i> Chi Tiết Phòng
+    </h1>
+
+    <div class="room-card">
+        <h4 class="room-info-title">
+            <i class="fas fa-info-circle"></i> Thông tin phòng
+        </h4>
+        <hr />
+        <dl class="row room-detail-row">
+            <dt class="col-sm-3">Số phòng:</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.RoomNumber)</dd>
+
+            <dt class="col-sm-3">Loại phòng:</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.RoomType)</dd>
+
+            <dt class="col-sm-3">Giá mỗi đêm:</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.PricePerNight.ToString("C0", new System.Globalization.CultureInfo("vi-VN"))) VND</dd>
+
+            <dt class="col-sm-3">Trạng thái:</dt>
+            <dd class="col-sm-9">
+                @if (Model.Status == "Available")
+                {
+                    <span class="badge bg-success">Có sẵn</span>
+                }
+                else if (Model.Status == "Booked")
+                {
+                    <span class="badge bg-danger">Đã đặt</span>
+                }
+                else if (Model.Status == "Maintenance")
+                {
+                    <span class="badge bg-warning">Bảo trì</span>
+                }
+            </dd>
+
+            <dt class="col-sm-3">Khách sạn:</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.Hotel.Name)</dd>
+        </dl>
+    </div>
+
+    <div class="room-detail-actions">
+        <a asp-action="Index">
+            <i class="fas fa-arrow-left"></i> Quay lại danh sách
+        </a>
+    </div>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.RoomId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">

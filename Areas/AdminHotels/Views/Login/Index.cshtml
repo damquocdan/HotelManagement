@@ -5,7 +5,7 @@
 
 @if (!ViewData.ModelState.IsValid)
 {
-    <div class="alert alert-danger mt-3">
+    <div class="alert alert-danger mt-4">
         <ul>
             @foreach (var modelState in ViewData.ModelState.Values)
             {
@@ -37,69 +37,127 @@
     <style>
         body {
             background-color: #f4f6f9;
+            font-family: 'Source Sans Pro', sans-serif;
         }
 
         .login-box {
-            width: 400px;
-            margin: auto;
-            margin-top: 80px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            padding: 20px;
-            border-radius: 8px;
+            width: 450px;
+            margin: 100px auto;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+            padding: 30px;
+            border-radius: 10px;
             background-color: #fff;
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 30px;
         }
 
         .login-title {
             font-weight: 700;
-            font-size: 24px;
+            font-size: 28px;
             color: #197fca;
-            text-align: center;
-            margin-bottom: 20px;
+            margin-top: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .input-label {
+            font-size: 18px;
+            font-weight: 600;
+            color: #ed3d34;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
         }
 
         .custom-input {
             border-radius: 8px;
-            margin-top: 10px;
-            height: 45px;
-            margin-left: 14px;
-            border: 1px solid #197fca;
+            height: 48px;
+            border: 2px solid #197fca;
+            padding-left: 40px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+            .custom-input:focus {
+                border-color: #ed3d34;
+                box-shadow: 0 0 5px rgba(237, 61, 52, 0.3);
+            }
+
+        .input-icon {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #197fca;
+            font-size: 18px;
         }
 
         .btn-primary {
             width: 100%;
             border-radius: 8px;
-            margin-top: 20px;
-            background-color: #197fca;
-            border-color: #197fca;
+            padding: 12px;
+            background-color: #ed3d34;
+            border-color: #ed3d34;
+            font-size: 18px;
+            font-weight: 600;
+            margin-top: 30px;
+            transition: background-color 0.3s;
         }
 
             .btn-primary:hover {
-                background-color: #ec4e45;
-                border-color: #ec4e45;
+                background-color: #197fca;
+                border-color: #197fca;
             }
 
         .alert {
-            margin-top: 20px;
-            font-size: 14px;
-            color: #ec4e45;
+            margin-top: 25px;
+            font-size: 15px;
+            border-color: #ed3d34;
         }
     </style>
 </head>
 <body class="hold-transition login-page">
-
     <div class="login-box">
-        <div class="login-title">Đăng Nhập Quản Trị Viên</div>
+        <div class="login-header">
+            <i class="fas fa-user-shield fa-3x" style="color: #ed3d34;"></i>
+            <div class="login-title">Đăng Nhập Quản Trị Viên</div>
+        </div>
+
         <form asp-action="Index" method="post">
             <!-- Email input -->
-            <input asp-for="Email" type="email" class="custom-input form-control form-control-lg"
-                   placeholder="Email" />
+            <div class="form-group">
+                <label class="input-label">
+                    <i class="fas fa-envelope mr-2"></i> Địa Chỉ Email
+                </label>
+                <div class="position-relative">
+                    <i class="fas fa-envelope input-icon"></i>
+                    <input asp-for="Email" type="email" class="custom-input form-control"
+                           placeholder="Nhập email của bạn" required />
+                </div>
+            </div>
 
             <!-- Password input -->
-            <input asp-for="Password" type="password" class="custom-input form-control form-control-lg"
-                   placeholder="Mật khẩu" required />
+            <div class="form-group">
+                <label class="input-label">
+                    <i class="fas fa-lock mr-2"></i> Mật Khẩu
+                </label>
+                <div class="position-relative">
+                    <i class="fas fa-lock input-icon"></i>
+                    <input asp-for="Password" type="password" class="custom-input form-control"
+                           placeholder="Nhập mật khẩu" required />
+                </div>
+            </div>
 
             <!-- Submit button -->
-            <button type="submit" class="btn btn-primary ">Đăng nhập</button>
+            <button type="submit" class="btn btn-primary">
+                <i class="fas fa-sign-in-alt mr-2"></i> Đăng Nhập
+            </button>
         </form>
     </div>
 
